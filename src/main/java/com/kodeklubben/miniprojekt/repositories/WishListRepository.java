@@ -10,10 +10,10 @@ import java.util.ArrayList;
 @Repository
 public class WishListRepository {
 
-    private DatabaseConnectionManager dcm = new DatabaseConnectionManager("eu-west.connect.psdb.cloud/miniprojekt?sslMode=VERIFY_IDENTITY", "main", "crxhth3n6nls3djd77if", "pscale_pw_Vz1sM3sSRwnOrc72waM3ahyvHEfHDmKnJCL2DUSKF2S");
+    private DatabaseConnectionManager dcm = new DatabaseConnectionManager("eu-west.connect.psdb.cloud", "n9yvymfj507ekkjlhtkd", "pscale_pw_iJs7WNJ0mxHfCdADkqSRM1GGcSUK5GgNiKGcgzgSz5m");
 
     private static final String GET_WISH_LISTS = "SELECT id, name, userId " +
-            "FROM miniprojekt WHERE userId=?";
+            "FROM wishLists WHERE userId=?";
 
     public ArrayList<String> getWishLists(long userId) {
         try(PreparedStatement statement = dcm.getConnection().prepareStatement(GET_WISH_LISTS)) {

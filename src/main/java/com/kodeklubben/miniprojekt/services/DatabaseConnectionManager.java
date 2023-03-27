@@ -9,14 +9,20 @@ public class DatabaseConnectionManager {
     private final String url;
     private final Properties properties;
 
-    public DatabaseConnectionManager(String host, String databaseName, String username, String password) {
-        this.url = "jdbc:mysql://" + host + "/" + databaseName;
+    public DatabaseConnectionManager(String host, String username, String password) {
+        this.url = "jdbc:mysql://" + host;
         this.properties = new Properties();
         this.properties.setProperty("user", username);
         this.properties.setProperty("password", password);
     }
 
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(this.url, this.properties);
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            return DriverManager.getConnection(this.url, this.properties);
+        } catch (ClassNotFoundException error) {
+            error.printStackTrace();
+            throw new RuntimeException(error);
+        }
     }
 }

@@ -1,27 +1,28 @@
+drop database if exists miniprojekt;
+
+create database miniprojekt;
+use miniprojekt;
+
 CREATE TABLE `users` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `id` int AUTO_INCREMENT,
   `name` varchar(255),
   `email` varchar(255),
   `password` varchar(255),
-  PRIMARY KEY (`id`, `name`)
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `wishLists` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `id` int AUTO_INCREMENT,
   `name` varchar(255),
-  `userId` int
+  `userId` int,
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `wishes` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `id` int AUTO_INCREMENT,
   `name` varchar(255),
   `link` varchar(255),
   `wishListId` int,
-  `reservedById` int
+  `reservedById` int,
+  PRIMARY KEY (`id`)
 );
-
-ALTER TABLE `users` ADD FOREIGN KEY (`id`) REFERENCES `wishLists` (`userId`);
-
-ALTER TABLE `wishLists` ADD FOREIGN KEY (`id`) REFERENCES `wishes` (`wishListId`);
-
-ALTER TABLE `users` ADD FOREIGN KEY (`id`) REFERENCES `wishes` (`reservedById`);

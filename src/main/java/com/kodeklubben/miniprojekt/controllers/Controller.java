@@ -20,7 +20,7 @@ public class Controller {
     }
 
     @GetMapping("/")
-    public ResponseEntity<String> getWishList() {
-        return new ResponseEntity<>("wishListRepository.getAllSuperheroes()", HttpStatus.OK);
+    public ResponseEntity<ArrayList<String>> getWishList() {
+        return new ResponseEntity<>(wishListRepository.getAllUser(1), HttpStatus.OK);
     }
 }

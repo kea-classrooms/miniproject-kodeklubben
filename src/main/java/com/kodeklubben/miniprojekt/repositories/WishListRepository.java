@@ -12,11 +12,26 @@ public class WishListRepository {
 
     private DatabaseConnectionManager dcm = new DatabaseConnectionManager("eu-west.connect.psdb.cloud", "n9yvymfj507ekkjlhtkd", "pscale_pw_iJs7WNJ0mxHfCdADkqSRM1GGcSUK5GgNiKGcgzgSz5m");
 
-    private static final String GET_WISH_LISTS = "SELECT id, name, userId " +
-            "FROM wishLists WHERE userId=?";
+    private static final String GET_WISH_LISTS = "SELECT id, name, userId  FROM wishLists WHERE userId=?";
+    private static final String GET_USER = "SELECT name FROM users WHERE id=?";
 
     public ArrayList<String> getWishLists(long userId) {
         try(PreparedStatement statement = dcm.getConnection().prepareStatement(GET_WISH_LISTS)) {
+            statement.setLong(1, userId);
+            ResultSet resultSet = statement.executeQuery();
+            ArrayList<String> wishLists = new ArrayList<>();
+            while (resultSet.next()) {
+                wishLists.add(resultSet.getString("name"));
+            }
+            return wishLists;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<String> getAllUser(long userId) {
+        try(PreparedStatement statement = dcm.getConnection().prepareStatement(GET_USER)) {
             statement.setLong(1, userId);
             ResultSet resultSet = statement.executeQuery();
             ArrayList<String> wishLists = new ArrayList<>();

@@ -67,7 +67,7 @@
 .sign-up-button {
   position: absolute;
   top: 477px;
-  left: 193px;
+  left: 475px;
   border-radius: var(--br-31xl);
   background-color: var(--color-gold);
   width: 259px;
@@ -94,7 +94,7 @@
 .sign-up-button1 {
   position: absolute;
   top: 477px;
-  left: 467px;
+  left: 767px;
   border-radius: var(--br-31xl);
   background-color: var(--color-cornflowerblue);
   width: 255px;
@@ -138,6 +138,7 @@
 .hero-section,
 .objectother-07 {
   position: absolute;
+
   top: 0;
   left: 590px;
   width: 465px;
@@ -145,7 +146,7 @@
 }
 .hero-section {
   top: 196px;
-  left: 193px;
+  left: 500px;
   width: 1055px;
   text-align: center;
   font-size: var(--font-size-41xl);
@@ -153,14 +154,14 @@
 .sign-up2 {
   position: absolute;
   top: 779px;
-  left: 234px;
+  left: 434px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 600;
 }
 .create-wishlist {
   top: 759px;
-  left: 468px;
+  left: 668px;
   text-align: center;
   display: inline-block;
   width: 180px;
@@ -176,7 +177,7 @@
 }
 .add-wishes {
   top: 760px;
-  left: 748px;
+  left: 948px;
   text-align: center;
   display: inline-block;
   width: 189px;
@@ -184,7 +185,7 @@
 }
 .share-it {
   top: 779px;
-  left: 1056px;
+  left: 1256px;
   color: var(--color-gold);
 }
 .homepage-child,
@@ -192,16 +193,16 @@
 .homepage-item {
   position: absolute;
   top: 779.33px;
-  left: 387.96px;
+  left: 587.96px;
   width: 62.54px;
   height: 36.82px;
 }
 .homepage-inner,
 .homepage-item {
-  left: 956.96px;
+  left: 1156.96px;
 }
 .homepage-inner {
-  left: 667.96px;
+  left: 867.96px;
 }
 .homepage {
   position: relative;

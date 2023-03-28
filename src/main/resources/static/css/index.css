@@ -11,24 +11,27 @@
 .b {
   font-family: var(--font-inter);
 }
-.about,
-.contact,
 .wishly {
   position: absolute;
   top: 0;
   left: 0;
 }
-.about,
-.contact {
-  left: 885px;
+.about {
+  position: absolute;
+  top: 0px;
+  right: 425px;
 }
+
 .contact {
-  left: 998px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 .sign-up {
+  position: absolute;
   text-decoration: none;
   top: 0;
-  left: 650px;
+  right: 150px;
   color: inherit;
 }
 .login,
@@ -39,13 +42,14 @@
 .login {
   text-decoration: none;
   top: 0;
-  left: 779px;
+  right: 300px;
   color: inherit;
 }
 .nav-bar {
   top: 49px;
-  left: 180px;
-  width: 1088px;
+  right: 0px;
+  width: 90%;
+  margin-right: 5%;
   height: 32px;
   font-size: var(--font-size-6xl);
 }
@@ -205,8 +209,7 @@
   left: 867.96px;
 }
 .homepage {
-  position: relative;
-  margin-left: 7.5%;
+  position: center;
   background-color: var(--color-midnightblue);
   width: 85%;
   height: 1024px;

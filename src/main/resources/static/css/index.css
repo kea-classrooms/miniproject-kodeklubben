@@ -2,8 +2,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 2097px;
-  height: 1504px;
+  max-width: 100%;
+  max-height: 100%;
 }
 .ly {
   color: var(--color-gold);
@@ -142,15 +142,14 @@
 .hero-section,
 .objectother-07 {
   position: absolute;
-
   top: 0;
-  left: 590px;
+  left: 550px;
   width: 465px;
   height: 362px;
 }
 .hero-section {
   top: 196px;
-  left: 500px;
+  left: 475px;
   width: 1055px;
   text-align: center;
   font-size: var(--font-size-41xl);

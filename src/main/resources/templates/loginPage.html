@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="background-color: #212529; color: whitesmoke; text-align: center">
+
+<h1>Login</h1>
+
+<form action="#" th:action="@{/login}" method="post" th:object="${usermodel}">
+    <div>
+        <label>Email</label>
+        <input type="text" th:field="${usermodel.email}">
+    </div>
+
+    <div>
+        <label>Password</label>
+        <input type="text" th:field="${usermodel.password}">
+    </div>
+
+    <div>
+        <button type="submit">Login</button>
+    </div>
+</form>
+
+    <div>
+        <label>Dont have a user?</label>
+            <a th:href="@{'/createuser'}">
+                <button type="submit">Create user</button>
+            </a>
+    </div>
+
+</body>
+</html>

@@ -1,4 +1,5 @@
 package com.kodeklubben.miniprojekt.repositories;
+import com.kodeklubben.miniprojekt.models.userModel;
 import com.kodeklubben.miniprojekt.services.DatabaseConnectionManager;
 import org.springframework.stereotype.Repository;
 
@@ -43,5 +44,8 @@ public class WishListRepository {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+    }
+
+    public void userLogin(userModel userModel) {
     }
 }

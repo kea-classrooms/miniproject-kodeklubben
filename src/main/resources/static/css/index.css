@@ -205,11 +205,12 @@
 }
 .homepage {
   position: relative;
+  margin-left: 7.5%;
   background-color: var(--color-midnightblue);
-  width: 100%;
+  width: 85%;
   height: 1024px;
   overflow: hidden;
-  text-align: left;
+  text-align: center;
   font-size: var(--font-size-11xl);
   color: var(--color-white);
   font-family: var(--font-outfit);

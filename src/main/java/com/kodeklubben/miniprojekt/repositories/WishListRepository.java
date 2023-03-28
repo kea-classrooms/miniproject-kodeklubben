@@ -44,8 +44,12 @@ public class WishListRepository {
         try (PreparedStatement preparedStatement = dcm.getConnection().prepareStatement(GET_ID_FROM_LOGIN)) {
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
+            int id = -1;
             ResultSet resultSet = preparedStatement.executeQuery();
-            return resultSet.getInt("id");
+            while (resultSet.next()) {
+                id = resultSet.getInt("id");
+            }
+            return id;
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

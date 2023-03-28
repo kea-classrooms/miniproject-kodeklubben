@@ -1,11 +1,11 @@
 package com.kodeklubben.miniprojekt.models;
 
 public class WishModel {
-    private long id;
+    private int id;
     private String name;
     private String link;
 
-    public WishModel(long id, String name, String link) {
+    public WishModel(int id, String name, String link) {
         this.id = id;
         this.name = name;
         this.link = link;
@@ -15,7 +15,7 @@ public class WishModel {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -12,14 +12,14 @@ CREATE TABLE `users` (
 );
 
 CREATE TABLE `wishLists` (
-  `id` int AUTO_INCREMENT,
+  `id` int,
   `name` varchar(255),
   `userId` int,
   PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `wishes` (
-  `id` int AUTO_INCREMENT,
+  `id` int,
   `name` varchar(255),
   `link` varchar(255),
   `wishListId` int,

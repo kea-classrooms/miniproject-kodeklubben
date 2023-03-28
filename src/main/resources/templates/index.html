@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="homepage">
+      <img
+        class="background-cirkels-icon"
+        alt=""
+        src="./public/background-cirkels.svg"
+      />
+      <div class="nav-bar">
+        <div class="wishly">
+          <b><span>Wis</span><span class="hly">hly</span></b
+          ><b class="b"> </b>
+        </div>
+        <div class="about">About</div>
+        <div class="contact">Contact</div>
+        <a class="sign-up" href="./RegistrationPage.html">Sign Up</a
+        ><a class="login" href="./LoginPage.html">Login</a>
+      </div>
+      <div class="sign-up-button">
+        <button class="sign-up1" autofocus id="signUp1">Sign Up</button>
+      </div>
+      <div class="sign-up-button1">
+        <button class="login1" autofocus id="login1">Login</button>
+      </div>
+      <div class="hero-section">
+        <b class="welcome-to-wishly-container"
+          ><span>Welcome to Wis</span><span class="hly">hly</span></b
+        >
+        <div class="create-your-own">
+          Create your own digital wishlist and share it with friends and family
+          today!
+        </div>
+        <div class="objectother-07">
+          <img
+            class="objectother-07-icon"
+            alt=""
+            src="./public/objectother-07@2x.png"
+          />
+        </div>
+      </div>
+      <div class="sign-up2">Sign up</div>
+      <div class="create-wishlist">Create wishlist</div>
+      <div class="add-wishes">add wishes</div>
+      <div class="share-it">Share it</div>
+      <img class="homepage-child" alt="" src="./public/arrow-1.svg" /><img
+        class="homepage-item"
+        alt=""
+        src="./public/arrow-1.svg"
+      /><img class="homepage-inner" alt="" src="./public/arrow-1.svg" />
+    </div>
+
+    <script>
+      var signUp1 = document.getElementById("signUp1");
+      if (signUp1) {
+        signUp1.addEventListener("click", function (e) {
+          window.location.href = "./RegistrationPage.html";
+        });
+      }
+      
+      var login1 = document.getElementById("login1");
+      if (login1) {
+        login1.addEventListener("click", function (e) {
+          window.location.href = "./LoginPage.html";
+        });
+      }
+      </script>
+  </body>
+</html>

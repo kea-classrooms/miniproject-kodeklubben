@@ -1,5 +1,6 @@
 package com.kodeklubben.miniprojekt.controllers;
 
+import com.kodeklubben.miniprojekt.models.WishListModel;
 import com.kodeklubben.miniprojekt.repositories.WishListRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class Controller {
     WishListRepository wishListRepository = new WishListRepository();
 
     @GetMapping("/{id}")
-    public ResponseEntity<ArrayList<String>> getWishLists(@PathVariable String id) {
+    public ResponseEntity<ArrayList<WishListModel>> getWishLists(@PathVariable String id) {
         return new ResponseEntity<>(wishListRepository.getWishLists(Long.parseLong(id)), HttpStatus.OK);
     }
 

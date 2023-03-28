@@ -18,7 +18,7 @@ public class Controller {
 
     @GetMapping("/{id}")
     public ResponseEntity<ArrayList<WishListModel>> getWishLists(@PathVariable String id) {
-        return new ResponseEntity<>(wishListRepository.getWishLists(Long.parseLong(id)), HttpStatus.OK);
+        return new ResponseEntity<>(wishListRepository.getWishLists(Integer.parseInt(id)), HttpStatus.OK);
     }
 
     @GetMapping("/")

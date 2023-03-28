@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,8 +53,8 @@ public class Controller {
     }
 
     @PostMapping("/createUser")
-    public String submitUser(@ModelAttribute("userModel") UserModel userModel) {
-        wishListRepository.userLogin(userModel);
+    public String submitUser(@ModelAttribute("userModel") UserModel userModel) throws SQLException {
+        wishListRepository.addUserToDatabase(userModel);
         return "";
     }
 

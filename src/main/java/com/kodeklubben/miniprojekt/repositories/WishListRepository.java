@@ -18,6 +18,7 @@ public class WishListRepository {
     private static final String GET_WISH_LISTS = "SELECT id, name, userId  FROM wishLists WHERE userId=?";
     private static final String GET_WISHES = "SELECT id, name, link FROM wishes WHERE wishListId=?";
     private static final String GET_USER = "SELECT name FROM users WHERE id=?";
+    private static final String CREATE_USER = "INSERT into users (name, email, password) VALUES(?,?,?)";
 
     public ArrayList<WishListModel> getWishLists(long userId) {
         try(PreparedStatement statement = dcm.getConnection().prepareStatement(GET_WISH_LISTS)) {
@@ -65,5 +66,14 @@ public class WishListRepository {
     }
 
     public void userLogin(UserModel userModel) {
+    }
+
+    public void addUserToDatabase(UserModel userModel) throws SQLException {
+        try (PreparedStatement statement = dcm.getConnection().prepareStatement(CREATE_USER)) {
+            statement.setString(1, userModel.getName());
+            statement.setString(2, userModel.getEmail());
+            statement.setString(3, userModel.getPassword());
+            ResultSet resultSet = statement.executeQuery();
+        }
     }
 }

@@ -3,13 +3,13 @@ package com.kodeklubben.miniprojekt.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class wishlistModel {
+public class WishListModel {
     private String listName;
-    private List<wishModel> wishModelList = new ArrayList<>();
+    private ArrayList<WishModel> wishModelList;
 
-    public wishlistModel(String listName, List<wishModel> wishModelList) {
+    public WishListModel(String listName, ArrayList<WishModel> wishes) {
         this.listName = listName;
-        this.wishModelList = wishModelList;
+        this.wishModelList = wishes;
     }
 
     public String getListName() {
@@ -20,11 +20,11 @@ public class wishlistModel {
         this.listName = listName;
     }
 
-    public List<wishModel> getWishModelList() {
+    public List<WishModel> getWishModelList() {
         return wishModelList;
     }
 
-    public void setWishModelList(List<wishModel> wishModelList) {
+    public void setWishModelList(ArrayList<WishModel> wishModelList) {
         this.wishModelList = wishModelList;
     }
 }

@@ -57,7 +57,7 @@
     position: absolute;
     top: 118px;
     left: 4px;
-    font-size: var(--font-size-9xl);
+    font-size: var(--font-size-xl);
     letter-spacing: 0.05em;
     white-space: pre-wrap;
     display: inline-block;

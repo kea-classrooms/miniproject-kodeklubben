@@ -78,7 +78,16 @@ public class Controller {
         return "profile";
     }
 
+    // About & Contact
 
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "About";
+    }
+    @GetMapping("/contact")
+    public String contactPage() {
+        return "Contact";
+    }
 
 
 

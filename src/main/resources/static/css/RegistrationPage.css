@@ -1,9 +1,8 @@
 .background-cirkels-icon3 {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  width: 2097px;
-  height: 1504px;
+  height: 1004px;
 }
 .hly6 {
   color: var(--color-gold);
@@ -44,7 +43,7 @@
   font-size: var(--font-size-6xl);
 }
 .registration-page-child {
-  position: absolute;
+  position: relative;
   top: 243px;
   left: 278px;
   border-radius: var(--br-6xl);
@@ -53,7 +52,7 @@
   height: 653px;
 }
 .registration-page-item {
-  position: absolute;
+  position: relative;
   top: 818px;
   left: 564px;
   border-top: 2px solid rgba(255, 255, 255, 0.8);
@@ -160,7 +159,7 @@
   width: 477px;
 }
 .top-header2 {
-  position: absolute;
+  position: relative;
   top: 129px;
   left: 278px;
   width: 885px;
@@ -171,7 +170,7 @@
   position: relative;
   background-color: var(--color-midnightblue);
   width: 100%;
-  height: 1024px;
+  height: 100%;
   overflow: hidden;
   text-align: center;
   font-size: var(--font-size-11xl);

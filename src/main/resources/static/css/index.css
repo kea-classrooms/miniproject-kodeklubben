@@ -1,5 +1,5 @@
 .background-cirkels-icon {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   max-width: 100%;
@@ -195,22 +195,7 @@
   left: 1256px;
   color: var(--color-gold);
 }
-.homepage-child,
-.homepage-inner,
-.homepage-item {
-  position: absolute;
-  top: 779.33px;
-  left: 587.96px;
-  width: 62.54px;
-  height: 36.82px;
-}
-.homepage-inner,
-.homepage-item {
-  left: 1156.96px;
-}
-.homepage-inner {
-  left: 867.96px;
-}
+
 .homepage {
   position: center;
   background-color: var(--color-midnightblue);

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <link rel="stylesheet" href="./global.css" />
+  <link rel="stylesheet" href="./HomepageWhenLogin.css" />
+  <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+  />
+  <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap"
+  />
+</head>
+<body>
+<div class="homepage-when-login">
+  <img
+          class="background-cirkels-icon1"
+          alt=""
+          src="./public/background-cirkels1.svg"
+  />
+  <div class="objectother-18"></div>
+  <div class="nav-bar1">
+    <div class="wishly1">
+      <b><span>Wish</span><span class="ly">ly</span></b
+      ><b class="b1"> </b>
+    </div>
+    <div class="about1">About</div>
+    <div class="contact1">Contact</div>
+    <a class="logout" href="./LoginPage.html">Logout</a
+    ><a class="create" href="./LoginPage.html">Create</a>
+  </div>
+  <div class="create-button">
+    <button class="create-button1" autofocus id="createButton">
+      Create A wishlist
+    </button>
+  </div>
+  <div class="hero-section1">
+    <b class="welcome-to-wishly-container1"
+    ><span>Welcome to Wish</span><span class="ly">ly</span></b
+    >
+    <div class="thank-you-for-container">
+      <p class="thank-you-for">Thank you for signing up to Wishly!</p>
+      <p class="thank-you-for">We hope you enjoy the product</p>
+    </div>
+    <div class="objectother-071">
+      <img
+              class="objectother-07-icon1"
+              alt=""
+              src="./public/objectother-07@2x.png"
+      />
+    </div>
+  </div>
+  <div class="create-wishlist1">Create wishlist</div>
+  <div class="add-wishes1">add wishes</div>
+  <div class="share-it1">Share it</div>
+  <img
+          class="homepage-when-login-child"
+          alt=""
+          src="./public/arrow-1.svg"
+  /><img
+        class="homepage-when-login-item"
+        alt=""
+        src="./public/arrow-1.svg"
+/>
+</div>
+
+<script>
+  var createButton = document.getElementById("createButton");
+  if (createButton) {
+    createButton.addEventListener("click", function (e) {
+      window.location.href = "./RegistrationPage.html";
+    });
+  }
+</script>
+</body>
+</html>

@@ -16,11 +16,6 @@ import java.util.ArrayList;
 public class Controller {
     WishListRepository wishListRepository = new WishListRepository();
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ArrayList<WishListModel>> getWishLists(@PathVariable String id) {
-        return new ResponseEntity<>(wishListRepository.getWishLists(Integer.parseInt(id)), HttpStatus.OK);
-    }
-
     @GetMapping("/")
     public String homePage(){
         return "index";
@@ -29,29 +24,30 @@ public class Controller {
     // Login
     @GetMapping("/login")
     public String login(Model model) {
-        UserModel userModel = new UserModel();
-        model.addAttribute("usermodel", userModel);
-        return "loginPage";
+        return "login";
     }
 
     //login
-    @PostMapping("/login")
-    public String submitLogin(@RequestParam String id, UserModel userModel) {
-        int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
+    @GetMapping("/credentials")
+    public String submitLogin(@RequestParam String id, Model model) {
+        //localhost:8080/credentials?id=frederik;;frederikpassword
+        String email = id.split(";;")[0];
+        String password = id.split(";;")[1];
+        int userId = wishListRepository.getIdFromAuthentication(email, password);
         if (userId != -1) {
+            UserModel userModel = wishListRepository.getUser(userId);
+            model.addAttribute("user", userModel);
             return "profile";
         } else {
-            return "loginPage";
+            return "login";
         }
     }
 
 
     // Create User
-
     @GetMapping("/createuser")
     public String createUser(Model model) {
-        UserModel userModel = new UserModel();
-        model.addAttribute("usermodel", userModel);
+        model.addAttribute("usermodel");
         return "register";
     }
 

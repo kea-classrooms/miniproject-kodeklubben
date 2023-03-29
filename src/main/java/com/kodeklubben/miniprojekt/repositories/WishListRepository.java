@@ -1,4 +1,5 @@
 package com.kodeklubben.miniprojekt.repositories;
+import com.kodeklubben.miniprojekt.models.UserModel;
 import com.kodeklubben.miniprojekt.models.WishListModel;
 import com.kodeklubben.miniprojekt.models.WishModel;
 import com.kodeklubben.miniprojekt.services.DatabaseConnectionManager;
@@ -86,15 +87,12 @@ public class WishListRepository {
         }
     }
 
-    public ArrayList<String> getAllUser(int userId) {
+    public UserModel getUser(int userId) {
         try(PreparedStatement statement = dcm.getConnection().prepareStatement(GET_USER)) {
             statement.setLong(1, userId);
             ResultSet resultSet = statement.executeQuery();
-            ArrayList<String> wishLists = new ArrayList<>();
-            while (resultSet.next()) {
-                wishLists.add(resultSet.getString("name"));
-            }
-            return wishLists;
+            UserModel userModel = new UserModel(resultSet.getString("name"), resultSet.getString("email"), resultSet.getString("password"));
+            return userModel;
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

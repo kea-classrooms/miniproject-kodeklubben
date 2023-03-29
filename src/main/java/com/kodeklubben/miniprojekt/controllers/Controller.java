@@ -27,7 +27,6 @@ public class Controller {
     }
 
     // Login
-
     @GetMapping("/login")
     public String login(Model model) {
         UserModel userModel = new UserModel();
@@ -56,7 +55,4 @@ public class Controller {
         wishListRepository.insertNewUser(userModel.getName(), userModel.getEmail(), userModel.getPassword());
         return "userPage";
     }
-
-
-
 }

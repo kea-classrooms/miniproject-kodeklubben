@@ -19,27 +19,35 @@
       <img
         class="background-cirkels-icon3"
         alt=""
-        src="../static/css/public/background-cirkels3.svg"
+        src="css/public/background-cirkels3.svg"
       />
       <div class="nav-bar3">
-        <div class="wishly3">
-          <b><span>Wis</span><span class="hly6">hly</span></b
-          ><b class="b3"> </b>
-        </div>
+        <a th:href="@{'/'}">
+          <div class="wishly3">
+            <b><span>Wish</span><span class="hly6">ly</span></b
+            ><b class="b3"> </b>
+          </div>
+        </a>
         <div class="about3">About</div>
         <div class="contact3">Contact</div>
-        <div class="login4">Login</div>
+        <a th:href="@{'/login'}">
+          <div class="login4">Login</div>
+        </a>
       </div>
       <div class="registration-page-child"></div>
       <div class="registration-page-item"></div>
-      <div class="already-have-a-container">
-        A<span class="lready-have-a"
-          >lready have a account? Click here to login
-        </span>
-      </div>
-      <div class="sign-up-button4">
-        <div class="sign-me-up">Sign me up</div>
-      </div>
+      <a th:href="@{'/SignUpSuccesful'}">
+        <div class="already-have-a-container">
+          A<span class="lready-have-a"
+            >lready have a account? Click here to login
+          </span>
+        </div>
+      </a>
+      <a th:href="@{'/SignUpSuccesful'}">
+        <div class="sign-up-button4">
+          <div class="sign-me-up">Sign me up</div>
+        </div>
+      </a>
       <div class="name-input">
         <b class="name">Name</b><input class="password-input" type="text" />
       </div>
@@ -54,7 +62,7 @@
         <img
           class="top-header-inner"
           alt=""
-          src="../static/css/public/rectangle-51.svg"
+          src="css/public/rectangle-51.svg"
         /><b class="wishly-sign-up-container"
           ><span>Wis</span><span class="hly6">hly</span><span> sign up</span></b
         >

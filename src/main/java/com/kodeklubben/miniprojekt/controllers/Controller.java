@@ -60,4 +60,9 @@ public class Controller {
         wishListRepository.insertNewUser(userModel.getName(), userModel.getEmail(), userModel.getPassword());
         return "profile";
     }
+
+
+
+
+
 }

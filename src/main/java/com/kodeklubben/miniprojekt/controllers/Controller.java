@@ -34,7 +34,6 @@ public class Controller {
         int userId = Integer.parseInt(id.split(";;")[0]);
         int wishListId = Integer.parseInt(id.split(";;")[1]);
         WishListModel wishList = wishListRepository.getWishList(userId, wishListId);
-        System.out.println("id: " + userId);
         if (wishList != null) {
             UserModel user = wishListRepository.getUser(userId);
             if (user != null) {

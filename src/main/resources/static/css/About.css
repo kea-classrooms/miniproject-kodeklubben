@@ -1,0 +1,146 @@
+.background-cirkels-icon2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2097px;
+    height: 1504px;
+}
+.ly2 {
+    color: var(--color-gold);
+}
+.b2 {
+    font-family: var(--font-inter);
+}
+.home1,
+.wishly2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.home1 {
+    left: 885px;
+}
+.contact2,
+.login3,
+.sign-up4 {
+    position: absolute;
+    top: 0;
+    left: 998px;
+}
+.login3,
+.sign-up4 {
+    text-decoration: none;
+    left: 650px;
+    color: inherit;
+}
+.login3 {
+    left: 779px;
+}
+.nav-bar2 {
+    position: absolute;
+    top: 49px;
+    left: 180px;
+    width: 1088px;
+    height: 32px;
+    font-size: var(--font-size-6xl);
+}
+.about-wishly {
+    position: absolute;
+    top: 0;
+    left: 4px;
+    letter-spacing: 0.03em;
+    text-transform: capitalize;
+}
+.wishly-is-an {
+    margin: 0;
+}
+.wishly-is-an-container {
+    position: absolute;
+    top: 118px;
+    left: 4px;
+    font-size: var(--font-size-9xl);
+    letter-spacing: 0.05em;
+    display: inline-block;
+    width: 799px;
+    height: 240px;
+}
+.hero-section2,
+.the-wishly-proces-container {
+    position: absolute;
+    left: 193px;
+    font-size: var(--font-size-41xl);
+}
+.hero-section2 {
+    top: 196px;
+    width: 1055px;
+    height: 362px;
+}
+.the-wishly-proces-container {
+    top: 590px;
+    letter-spacing: 0.03em;
+    text-transform: capitalize;
+}
+.sign-up5 {
+    position: absolute;
+    top: 750px;
+    left: 234px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.create-wishlist1 {
+    top: 730px;
+    left: 468px;
+    text-align: center;
+    display: inline-block;
+    width: 180px;
+    height: 78px;
+}
+.add-wishes1,
+.create-wishlist1,
+.share-it1 {
+    position: absolute;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.add-wishes1 {
+    top: 731px;
+    left: 748px;
+    text-align: center;
+    display: inline-block;
+    width: 189px;
+    height: 75px;
+}
+.share-it1 {
+    top: 750px;
+    left: 1056px;
+    color: var(--color-gold);
+}
+.about-child,
+.about-inner,
+.about-item {
+    position: absolute;
+    top: 750.33px;
+    left: 387.96px;
+    width: 62.54px;
+    height: 36.82px;
+}
+.about-inner,
+.about-item {
+    left: 956.96px;
+}
+.about-inner {
+    left: 667.96px;
+}
+.about2 {
+    position: relative;
+    background-color: var(--color-midnightblue);
+    width: 100%;
+    height: 1024px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-11xl);
+    color: var(--color-white);
+    font-family: var(--font-outfit);
+}

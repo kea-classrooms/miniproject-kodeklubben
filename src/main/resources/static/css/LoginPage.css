@@ -5,6 +5,7 @@
   width: 2097px;
   height: 1504px;
 }
+
 .hly4 {
   color: var(--color-gold);
 }
@@ -18,21 +19,7 @@
 }
 .about2,
 .contact2,
-.nav-bar2 {
-  position: absolute;
-  top: 0;
-  left: 885px;
-}
 .contact2,
-.nav-bar2 {
-  left: 998px;
-}
-.nav-bar2 {
-  top: 49px;
-  left: 180px;
-  width: 1088px;
-  height: 32px;
-}
 .login-page-child {
   position: absolute;
   top: 243px;

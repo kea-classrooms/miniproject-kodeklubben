@@ -20,12 +20,16 @@
   position: absolute;
   top: 0px;
   right: 425px;
+  color: inherit;
+  text-decoration: none;
 }
 
 .contact {
   position: absolute;
   top: 0px;
   right: 0px;
+  color: inherit;
+  text-decoration: none;
 }
 .sign-up {
   position: absolute;

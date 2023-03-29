@@ -31,13 +31,18 @@ public class Controller {
     public String login(Model model) {
         UserModel userModel = new UserModel();
         model.addAttribute("usermodel", userModel);
-        return "LoginPage";
+        return "loginPage";
     }
 
+    //login
     @PostMapping("/login")
-    public String submitLogin(@ModelAttribute("userModel") UserModel userModel) {
-        wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
-        return "userPage";
+    public String submitLogin(@RequestParam String id, UserModel userModel) {
+        int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
+        if (userId != -1) {
+            return "profile";
+        } else {
+            return "loginPage";
+        }
     }
 
 
@@ -47,12 +52,12 @@ public class Controller {
     public String createUser(Model model) {
         UserModel userModel = new UserModel();
         model.addAttribute("usermodel", userModel);
-        return "RegistrationPage";
+        return "register";
     }
 
     @PostMapping("/createUser")
     public String submitUser(@ModelAttribute("userModel") UserModel userModel) throws SQLException {
         wishListRepository.insertNewUser(userModel.getName(), userModel.getEmail(), userModel.getPassword());
-        return "userPage";
+        return "profile";
     }
 }

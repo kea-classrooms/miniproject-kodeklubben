@@ -27,13 +27,14 @@ public class Controller {
         return "login";
     }
 
-    //login
+    //login with email and password
     @GetMapping("/credentials")
     public String submitLogin(@RequestParam String id, Model model) {
-        //localhost:8080/credentials?id=frederik;;frederikpassword
+        //localhost:8080/credentials?id=Adam@kea.dk;;Adam Hagepassword
         String email = id.split(";;")[0];
         String password = id.split(";;")[1];
         int userId = wishListRepository.getIdFromAuthentication(email, password);
+        System.out.println("id: " + userId);
         if (userId != -1) {
             UserModel userModel = wishListRepository.getUser(userId);
             model.addAttribute("user", userModel);

@@ -1,0 +1,85 @@
+.background-cirkels-icon1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2097px;
+    height: 1504px;
+}
+.ly {
+    color: var(--color-gold);
+}
+.b1 {
+    font-family: var(--font-inter);
+}
+.about1,
+.wishly1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.about1 {
+    left: 885px;
+}
+.home,
+.login2,
+.sign-up3 {
+    position: absolute;
+    top: 0;
+    left: 998px;
+}
+.login2,
+.sign-up3 {
+    text-decoration: none;
+    left: 650px;
+    color: inherit;
+}
+.login2 {
+    left: 779px;
+}
+.nav-bar1 {
+    position: absolute;
+    top: 49px;
+    left: 180px;
+    width: 1088px;
+    height: 32px;
+}
+.contact-wishly {
+    position: absolute;
+    top: 0;
+    left: 4px;
+    letter-spacing: 0.03em;
+    text-transform: capitalize;
+}
+.if-you-wish {
+    margin: 0;
+}
+.if-you-wish-container {
+    position: absolute;
+    top: 118px;
+    left: 4px;
+    font-size: var(--font-size-9xl);
+    letter-spacing: 0.05em;
+    white-space: pre-wrap;
+    display: inline-block;
+    width: 799px;
+    height: 240px;
+}
+.hero-section1 {
+    position: absolute;
+    top: 196px;
+    left: 193px;
+    width: 1055px;
+    height: 463px;
+    font-size: var(--font-size-41xl);
+}
+.contact1 {
+    position: relative;
+    background-color: var(--color-midnightblue);
+    width: 100%;
+    height: 1024px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-6xl);
+    color: var(--color-white);
+    font-family: var(--font-outfit);
+}

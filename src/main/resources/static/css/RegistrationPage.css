@@ -14,22 +14,26 @@
 .about3,
 .wishly3 {
   position: absolute;
+  text-decoration: #D6BA00;
   top: 0;
   left: 0;
 }
 .about3 {
   left: 885px;
+  text-decoration: none!important;
 }
 .contact3,
 .login4,
 .nav-bar3 {
   position: absolute;
+  text-decoration: none!important;
   top: 0;
   left: 998px;
 }
 .login4,
 .nav-bar3 {
   left: 779px;
+  text-decoration: none!important;
 }
 .nav-bar3 {
   top: 49px;

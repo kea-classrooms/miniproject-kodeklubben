@@ -61,8 +61,9 @@ public class Controller {
         System.out.println("id: " + userId);
         if (userId != -1) {
             UserModel userModel = wishListRepository.getUser(userId);
-            System.out.println(userModel);
+            ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
             model.addAttribute("user", userModel);
+            model.addAttribute("wishLists", wishLists);
             return "profile";
         } else {
             return "login";

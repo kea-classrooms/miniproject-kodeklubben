@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title th:text="${user.getName()}">Your Page</title>
     <link rel="stylesheet" href="css/profile.css" type="text/css"/>
+
 </head>
 <body>
     <div class="container">
@@ -22,6 +23,26 @@
             </div>
         </div>
         <h1 th:text="${user.getName()}">loading...</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Navn</th>
+                <th>link</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="wishList: ${wishLists}">
+                <td th:text="${wishList.getName()}">Ønskelistenavn</td>
+                <td><button>Open</button></td>
+            </tr>
+            </tbody>
+        </table>
+        <table id="createNew">
+            <tr>
+                <td>Create new wish list</td>
+                <td><button>Create</button></td>
+            </tr>
+        </table>
     </div>
 
 </body>

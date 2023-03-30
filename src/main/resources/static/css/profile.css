@@ -34,7 +34,7 @@
     padding-right: 24px;
 }
 
-b, h1, a {
+b, h1, a, th, td {
     color: whitesmoke;
     font-family: "Helvetica Neue", serif;
     text-decoration: none;
@@ -51,4 +51,16 @@ body {
 h1 {
     font-size: 36px;
     text-align: center;
+}
+
+#createNew {
+    min-width: 84vw;
+    align-content: space-evenly;
+    align-items: center;
+}
+
+.table {
+    font-size: 24px;
+    min-width: 84vw;
+    background-color: rgba(151,71,255,0.2);
 }

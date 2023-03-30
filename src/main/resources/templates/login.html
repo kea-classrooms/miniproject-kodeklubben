@@ -31,18 +31,22 @@
       <div class="login-page-child"></div>
       <img class="login-page-item" alt="" src="css/public/line-1.svg" />
       <div class="dont-have-a">Don’t have a account? Click here to sign up</div>
+      <form action="#" th:action="@{/login}" th:object="${user}" method="post">
       <div class="sign-up-button3">
-        <div class="sign-up-button-child"></div>
-        <div class="login3">login</div>
+        <button type="submit">
+          <div class="sign-up-button-child"></div>
+          <div class="login3">login</div>
+        </button>
       </div>
-      <form class="email">
+      <div class="email">
         <b class="email1">Email</b>
-        <div class="email-child"></div>
-      </form>
+        <input class="email-child" type="email" th:field="${user.email}"/>
+      </div>
       <div class="password">
         <b class="password1">Password</b>
-        <div class="password-child"></div>
+        <input class="password-child" type="password" th:field="${user.password}"/>
       </div>
+      </form>
       <div class="top-header1">
         <img class="top-header-item" alt="" src="css/public/rectangle-51.svg" /><b
           class="wishly-login"

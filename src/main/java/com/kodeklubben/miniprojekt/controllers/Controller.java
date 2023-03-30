@@ -48,56 +48,20 @@ public class Controller {
         }
     }
 
+    //go to profile
+
+
     //login with email and password
     @GetMapping("/credentials")
-    public String submitLogin(@RequestParam String id) {
-        //localhost:8080/credentials?id=Adam@kea.dk;Adam Hagepassword
+    public String submitLogin(@RequestParam String id, Model model) {
+        //http://localhost:8080/credentials?id=frederikbehrens90@gmail.com;123
         String email = id.split(";")[0];
         String password = id.split(";")[1];
         int userId = wishListRepository.getIdFromAuthentication(email, password);
         System.out.println("id: " + userId);
         if (userId != -1) {
-            Model model = new Model() {
-                @Override
-                public Model addAttribute(String attributeName, Object attributeValue) {
-                    return null;
-                }
-
-                @Override
-                public Model addAttribute(Object attributeValue) {
-                    return null;
-                }
-
-                @Override
-                public Model addAllAttributes(Collection<?> attributeValues) {
-                    return null;
-                }
-
-                @Override
-                public Model addAllAttributes(Map<String, ?> attributes) {
-                    return null;
-                }
-
-                @Override
-                public Model mergeAttributes(Map<String, ?> attributes) {
-                    return null;
-                }
-
-                @Override
-                public boolean containsAttribute(String attributeName) {
-                    return false;
-                }
-
-                @Override
-                public Object getAttribute(String attributeName) {
-                    return null;
-                }
-                @Override
-                public Map<String, Object> asMap() {
-                    return null;
-                }
-            };
             UserModel userModel = wishListRepository.getUser(userId);
+            System.out.println(userModel);
             model.addAttribute("user", userModel);
             return "profile";
         } else {
@@ -107,6 +71,7 @@ public class Controller {
 
     @GetMapping("/register")
     public String register(Model model) {
+        System.out.println(model);
         UserModel userModel = new UserModel("", "", "");
         model.addAttribute("userModel", userModel);
         return "register";
@@ -114,10 +79,10 @@ public class Controller {
 
     // Create User
     @PostMapping("/register")
-    public String createUser(@ModelAttribute("userModel") UserModel userModel) {
+    public String createUser(@ModelAttribute("userModel") UserModel userModel, Model model) {
         System.out.println(userModel);
         wishListRepository.insertNewUser(userModel.getName(), userModel.getEmail(), userModel.getPassword());
-        submitLogin(userModel.getEmail() + ";" + userModel.getPassword());
+        submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model);
         return "profile";
     }
 

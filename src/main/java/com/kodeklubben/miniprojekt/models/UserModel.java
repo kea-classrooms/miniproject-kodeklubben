@@ -1,9 +1,9 @@
 package com.kodeklubben.miniprojekt.models;
 
 public class UserModel {
-    private String name;
-    private String email;
-    private String password;
+    String name;
+    String email;
+    String password;
 
 
     public UserModel(String name, String email, String password) {
@@ -34,5 +34,14 @@ public class UserModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

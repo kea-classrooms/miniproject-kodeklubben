@@ -17,7 +17,7 @@
     <tbody>
     <tr th:each="wish: ${wishList.getWishModelList()}">
         <td th:text="${wish.getName()}">Ønskenavn</td>
-        <td><a href="www.youtube.com" th:text="${wish.getLink()}"></a></td>
+        <td><a th:href="${wish.getLink()}" th:text="${wish.getLink()}"></a></td>
     </tr>
     </tbody>
 </table>

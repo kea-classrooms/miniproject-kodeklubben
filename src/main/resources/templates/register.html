@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en" xml:th="http://www.thymeleaf.org">
 <html>
   <head>
     <meta charset="utf-8" />
@@ -32,26 +33,26 @@
       <div class="registration-page-item"></div>
       <a th:href="@{'/login'}">
         <div class="already-have-a-container">
-          A<span class="lready-have-a"
-            >lready have a account? Click here to login
-          </span>
+          <span class="Already-have-a">Already have a account? Click here to login</span>
         </div>
       </a>
-      <a th:href="@{'/SignUpSuccesful'}">
-        <div class="sign-up-button4">
-          <div class="sign-me-up">Sign me up</div>
+      <form action="#" th:action="@{/register}" th:object="${userModel}" method="post">
+        <button type="submit">
+          <div class="sign-up-button4">
+            <div class="sign-me-up">Sign me up</div>
+          </div>
+        </button>
+        <div class="name-input">
+          <b class="name">Name</b><input class="password-input" type="text" th:field="${userModel.name}"/>
         </div>
-      </a>
-      <div class="name-input">
-        <b class="name">Name</b><input class="password-input" type="text" />
-      </div>
-      <div class="email2">
-        <b class="name">Email</b><input class="email-input" type="email" />
-      </div>
-      <div class="password2">
-        <b class="name">Password</b
-        ><input class="password-input" type="password" />
-      </div>
+        <div class="email2">
+          <b class="name">Email</b><input class="email-input" type="email" th:field="${userModel.email}"/>
+        </div>
+        <div class="password2" >
+          <b class="name">Password</b
+          ><input class="password-input" type="password" th:field="${userModel.password}"/>
+        </div>
+      </form>
       <div class="top-header2">
         <img
           class="top-header-inner"

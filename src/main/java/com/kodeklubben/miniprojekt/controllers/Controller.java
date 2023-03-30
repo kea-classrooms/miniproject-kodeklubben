@@ -26,8 +26,18 @@ public class Controller {
     // Login
     @GetMapping("/login")
     public String login(Model model) {
+        UserModel userModel = new UserModel("", "", "");
+        model.addAttribute("userModel", userModel);
         return "login";
     }
+
+    // Create User
+    @PostMapping("/login")
+    public String submitLogin(@ModelAttribute("userModel") UserModel userModel, Model model) {
+        submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model);
+        return "profile";
+    }
+
 
     //wish list
     @GetMapping("/wishList")

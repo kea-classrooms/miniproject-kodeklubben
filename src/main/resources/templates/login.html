@@ -31,7 +31,7 @@
       <div class="login-page-child"></div>
       <img class="login-page-item" alt="" src="css/public/line-1.svg" />
       <div class="dont-have-a">Don’t have a account? Click here to sign up</div>
-      <form action="#" th:action="@{/login}" th:object="${user}" method="post">
+      <form action="#" th:action="@{/login}" th:object="${userModel}" method="post">
       <div class="sign-up-button3">
         <button type="submit">
           <div class="sign-up-button-child"></div>
@@ -40,11 +40,11 @@
       </div>
       <div class="email">
         <b class="email1">Email</b>
-        <input class="email-child" type="email" th:field="${user.email}"/>
+        <input class="email-child" type="email" th:field="${userModel.email}"/>
       </div>
       <div class="password">
         <b class="password1">Password</b>
-        <input class="password-child" type="password" th:field="${user.password}"/>
+        <input class="password-child" type="password" th:field="${userModel.password}"/>
       </div>
       </form>
       <div class="top-header1">

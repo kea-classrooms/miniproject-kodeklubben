@@ -3,15 +3,10 @@ package com.kodeklubben.miniprojekt.controllers;
 import com.kodeklubben.miniprojekt.models.UserModel;
 import com.kodeklubben.miniprojekt.models.WishListModel;
 import com.kodeklubben.miniprojekt.repositories.WishListRepository;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Map;
 
 @org.springframework.stereotype.Controller
 @RequestMapping("/")
@@ -58,6 +53,12 @@ public class Controller {
         }
     }
 
+    @PostMapping("/createWishList")
+    public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel) {
+        System.out.println(wishListModel);
+        wishListRepository.insertNewWishList(wishListModel.getListName(), userModel.getID());
+    }
+
 
 
     //login with email and password
@@ -102,7 +103,7 @@ public class Controller {
     // About & Contact
     @GetMapping("/about")
     public String aboutPage() {
-        return "About";
+        return "about";
     }
     @GetMapping("/contact")
     public String contactPage() {

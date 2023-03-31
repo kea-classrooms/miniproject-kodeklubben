@@ -1,6 +1,7 @@
 package com.kodeklubben.miniprojekt.models;
 
 public class UserModel {
+    int ID;
     String name;
     String email;
     String password;
@@ -10,6 +11,20 @@ public class UserModel {
         this.name = name;
         this.email = email;
         this.password = password;
+    }
+    public UserModel(int ID, String name, String email, String password) {
+            this.ID = ID;
+            this.name = name;
+            this.email = email;
+            this.password = password;
+        }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getName() {

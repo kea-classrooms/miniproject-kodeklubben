@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <title th:text="${user.getName()}">Your Page</title>
     <link rel="stylesheet" href="css/profile.css" type="text/css"/>
-    <link rel="stylesheet" href="css/newGlobal.css" type="text/css"/>
-
 </head>
 <body>
     <div class="container">
@@ -41,10 +39,37 @@
         <table id="createNew">
             <tr>
                 <td>Create new wish list</td>
-                <td><button>Create</button></td>
             </tr>
         </table>
+        <button th:onclick="openLoginForm()">Create</button>
+        <div class="popup-overlay"></div>
+        <div class="popup">
+            <div class="popup-close"
+                 th:onclick="closeLoginForm()">&times;</div>
+            <div class="form">
+                <div class="avatar">
+                    <img src="https://bit.ly/31pHqJb" alt="">
+                </div>
+                <div class="header">
+                    Create new WishList
+                </div>
+                <div class="element">
+                    <label for="wishlistname">Wishlist name</label>
+                    <input type="text" id="wishlistname">
+                </div>
+                <div class="element">
+                    <button>Create</button>
+                </div>
+            </div>
+        </div>
     </div>
-
+<script th:inline="javascript">
+    function openLoginForm(){
+        document.body.classList.add("showLoginForm");
+    }
+    function closeLoginForm(){
+        document.body.classList.remove("showLoginForm")
+    }
+</script>
 </body>
 </html>

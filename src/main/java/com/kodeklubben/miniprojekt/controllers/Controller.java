@@ -34,7 +34,7 @@ public class Controller {
     // Create User
     @PostMapping("/login")
     public String submitLogin(@ModelAttribute("userModel") UserModel userModel, Model model) {
-        submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model);
+        submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model, true);
         return "profile";
     }
 
@@ -58,17 +58,15 @@ public class Controller {
         }
     }
 
-    //go to profile
 
 
     //login with email and password
     @GetMapping("/credentials")
-    public String submitLogin(@RequestParam String id, Model model) {
+    public String submitLogin(@RequestParam String id, Model model, boolean isLogin) {
         //http://localhost:8080/credentials?id=frederikbehrens90@gmail.com;123
         String email = id.split(";")[0];
         String password = id.split(";")[1];
         int userId = wishListRepository.getIdFromAuthentication(email, password);
-        System.out.println("id: " + userId);
         if (userId != -1) {
             UserModel userModel = wishListRepository.getUser(userId);
             ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
@@ -76,7 +74,11 @@ public class Controller {
             model.addAttribute("wishLists", wishLists);
             return "profile";
         } else {
-            return "login";
+            if (isLogin) {
+                return "login";
+            } else {
+                return "register";
+            }
         }
     }
 
@@ -93,7 +95,7 @@ public class Controller {
     public String createUser(@ModelAttribute("userModel") UserModel userModel, Model model) {
         System.out.println(userModel);
         wishListRepository.insertNewUser(userModel.getName(), userModel.getEmail(), userModel.getPassword());
-        submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model);
+        submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model, false);
         return "profile";
     }
 

@@ -30,6 +30,7 @@ public class Controller {
     @PostMapping("/login")
     public String submitLogin(@ModelAttribute("userModel") UserModel userModel, Model model) {
         submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model, true);
+        model.addAttribute("userModel", userModel);
         return "profile";
     }
 
@@ -56,7 +57,7 @@ public class Controller {
     @PostMapping("/createWishList")
     public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel) {
         System.out.println(wishListModel);
-        wishListRepository.insertNewWishList(wishListModel.getListName(), userModel.getID());
+        wishListRepository.insertNewWishList(wishListModel.getListName(), wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword()));
         return "";
     }
 

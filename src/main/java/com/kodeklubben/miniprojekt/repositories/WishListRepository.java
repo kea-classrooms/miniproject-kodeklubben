@@ -98,7 +98,7 @@ public class WishListRepository {
             statement.setLong(1, userId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                UserModel userModel = new UserModel(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("email"), resultSet.getString("password"));
+                UserModel userModel = new UserModel(resultSet.getString("name"), resultSet.getString("email"), resultSet.getString("password"));
                 return userModel;
             }
             return null;

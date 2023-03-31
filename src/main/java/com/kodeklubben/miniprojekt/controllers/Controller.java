@@ -57,6 +57,7 @@ public class Controller {
     public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel) {
         System.out.println(wishListModel);
         wishListRepository.insertNewWishList(wishListModel.getListName(), userModel.getID());
+        return "";
     }
 
 

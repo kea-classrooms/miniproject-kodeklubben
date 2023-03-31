@@ -58,6 +58,12 @@ public class Controller {
         }
     }
 
+    @PostMapping("/createWishList")
+    public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel) {
+        System.out.println(wishListModel);
+        wishListRepository.insertNewWishList(wishListModel.getListName(), userModel.getID());
+    }
+
 
 
     //login with email and password

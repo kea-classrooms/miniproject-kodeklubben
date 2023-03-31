@@ -1,0 +1,29 @@
+.text-box {
+    width: 44vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    background-color: rgb(255, 255, 255, 0.06%);
+    text-align: center;
+}
+
+.arrow {
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+}
+
+.horizontal-row {
+    display: inline-block;
+    height: 100px;
+    text-align: center;
+    justify-content: center;
+}
+
+.content {
+    width: 84vw;
+    text-align: center;
+    margin: 0 auto;
+    border: 0;
+    outline: 0;
+}

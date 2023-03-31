@@ -20,7 +20,7 @@ public class WishListRepository {
     private static final String GET_WISH_LISTS = "SELECT id, name, userId  FROM wishLists WHERE userId=?";
     private static final String GET_WISH_LIST = "SELECT id, name, userId  FROM wishLists WHERE userId=? AND id=?";
     private static final String GET_WISHES = "SELECT id, name, link FROM wishes WHERE wishListId=?";
-    private static final String GET_USER = "SELECT name, email, password FROM users WHERE id=?";
+    private static final String GET_USER = "SELECT id, name, email, password FROM users WHERE id=?";
 
     private static final String GET_ID_FROM_LOGIN = "SELECT id FROM users WHERE email=? AND password=?";
 
@@ -31,16 +31,6 @@ public class WishListRepository {
     private static final String INSERT_NEW_USER = "INSERT INTO users(id, name, email, password) VALUES (?, ?, ?, ?)";
     private static final String INSERT_NEW_WISH_LIST = "INSERT INTO wishLists(id, name, userId) VALUES (?, ?, ?)";
     private static final String INSERT_NEW_WISH = "INSERT INTO wishes(id, name, link, wishListId, reservedById) VALUES (?, ?, ?, ?, ?)";
-
-    public String getUserName(int id) {
-        try (PreparedStatement preparedStatement = dcm.getConnection().prepareStatement(GET_USER)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            return resultSet.getString("name");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-    }
 
     public int getIdFromAuthentication(String email, String password) {
         try (PreparedStatement preparedStatement = dcm.getConnection().prepareStatement(GET_ID_FROM_LOGIN)) {
@@ -108,7 +98,7 @@ public class WishListRepository {
             statement.setLong(1, userId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                UserModel userModel = new UserModel(resultSet.getString("name"), resultSet.getString("email"), resultSet.getString("password"));
+                UserModel userModel = new UserModel(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("email"), resultSet.getString("password"));
                 return userModel;
             }
             return null;

@@ -65,7 +65,7 @@
         <tr th:each="wishList: ${wishLists}">
             <td th:text="${wishList.getListName()}">Ønskelistenavn</td>
             <td>
-                <button>Open</button>
+                <button href="/wishlist">Open</button>
             </td>
         </tr>
         </tbody>

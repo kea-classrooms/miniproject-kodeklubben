@@ -3,57 +3,42 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <link rel="stylesheet" href="css/login.css" type="text/css"/>
-    <link rel="stylesheet" href="css/global.css" type="text/css"/>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap"
-    />
+    <link rel="stylesheet" href="css/newGlobal.css" type="text/css"/>
   </head>
   <body>
-    <div class="login-page">
-      <img
-        class="background-cirkels-icon2"
-        alt=""
-        src="css/public/background-cirkels2.svg"
-      />
-      <div class="nav-bar2">
-        <div class="wishly2">
-          <a style="text-decoration: none" href="./"><b><span style="color: white">Wish</span><span class="hly4">ly</span></b></a>
-        </div>
-        <div class="about2">About</div>
-        <div class="contact2">Contact</div>
+    <div class="container">
+      <div class="nav-bar">
+        <div class="nav-bar-item">
+        <a href="./">
+          <b style="margin: 0; font-size: 32px"><span>Wish</span><span class="gold">ly</span></b>
+        </a>
       </div>
-      <div class="login-page-child"></div>
-      <img class="login-page-item" alt="" src="css/public/line-1.svg" />
-      <div class="dont-have-a">Don’t have a account? Click here to sign up</div>
-      <form action="#" th:action="@{/login}" th:object="${userModel}" method="post">
-      <div class="sign-up-button3">
-        <button type="submit">
-          <div class="sign-up-button-child"></div>
-          <div class="login3">login</div>
-        </button>
+        <div class="nav-bar-right">
+        <div><a class="nav-bar-item" href="/about">About</a></div>
+        <div><a class="nav-bar-item" href="/contact">Contact</a></div>
+        <div><a class="nav-bar-item" href="/register">Sign Up</a></div>
+        <div><a class="nav-bar-item" href="/login" style="opacity: 0.67">Log in</a></div>
       </div>
-      <div class="email">
-        <b class="email1">Email</b>
-        <input class="email-child" type="email" th:field="${userModel.email}"/>
       </div>
-      <div class="password">
-        <b class="password1">Password</b>
-        <input class="password-child" type="password" th:field="${userModel.password}"/>
+      <h1 style="padding-top: 50px">Login</h1>
+      <div class="form">
+        <form action="#" th:action="@{/login}" th:object="${userModel}" method="post">
+          <div class="form-item">
+            <b style="padding-right: 15px; padding-left: 32px">Email</b>
+            <input type="email" th:field="${userModel.email}"/>
+          </div>
+          <div class="form-item">
+            <b style="padding-right: 15px">Password</b>
+            <input type="password" th:field="${userModel.password}"/>
+          </div>
+          <div>
+            <button type="submit" class="button">
+              <div class="login3">Login</div>
+            </button>
+          </div>
+          <a href="/register">Don’t have an account? Click here to sign up</a>
+        </form>
       </div>
-      </form>
-      <div class="top-header1">
-        <img class="top-header-item" alt="" src="css/public/rectangle-51.svg" /><b
-          class="wishly-login"
-          ><span>Wish</span><span class="hly4">ly</span><span> login</span></b
-        >
-      </div>
-      <div class="sign-up3">Sign Up</div>
     </div>
   </body>
 </html>

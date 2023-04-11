@@ -40,10 +40,10 @@
                         <div class="header">
                             Create new WishList
                         </div>
-                        <form action="#">
+                        <form action="#" th:action="@{/createWishList}" th:object="${wishListModel}">
                             <div class="element">
                                 <label>Wishlist name</label>
-                                <input type="text">
+                                <input type="text" th:field="${wishListModel.listName}">
                             </div>
                             <div class="element">
                                 <button>Create</button>

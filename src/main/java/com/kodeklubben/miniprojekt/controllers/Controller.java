@@ -68,8 +68,6 @@ public class Controller {
         return "profile";
     }
 
-
-
     //login with email and password
     @GetMapping("/credentials")
     public String submitLogin(@RequestParam String id, Model model, boolean isLogin) {

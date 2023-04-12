@@ -1,7 +1,19 @@
 
 
+.createArea {
+    margin: auto;
+    width: 200px;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: rgb(64,39,141);
+    padding: 10px;
+}
+
 #createNew {
-    min-width: 84vw;
+    width: 200px;
     align-content: space-evenly;
     align-items: center;
 }

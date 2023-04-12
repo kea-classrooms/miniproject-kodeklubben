@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${user.getName()}">Your Page</title>
+    <link rel="stylesheet" href="css/newGlobal.css" type="text/css"/>
     <link rel="stylesheet" href="css/profile.css" type="text/css"/>
 </head>
 <body>
@@ -22,6 +23,37 @@
         </div>
     </div>
     <h1 th:text="${user.getName()}">loading...</h1>
+    <div style="display: flex; justify-content: center; margin-bottom: 10px">
+        <div class="createArea">
+            <h2 style="font-size: 22px; margin-bottom: -1px; margin-top: -2px">Create a new wishlist</h2>
+            <div>
+                <button th:onclick="openLoginForm()">Create</button>
+                <div class="popup-overlay"></div>
+                <div class="popup">
+                    <div class="popup-close"
+                         th:onclick="closeLoginForm()">&times;
+                    </div>
+                    <div class="form">
+                        <div class="avatar">
+                            <img src="https://bit.ly/31pHqJb" alt="">
+                        </div>
+                        <div class="header">
+                            Create new WishList
+                        </div>
+                        <form action="#" th:action="@{/createWishList}" th:object="${wishListModel}">
+                            <div class="element">
+                                <label>Wishlist name</label>
+                                <input type="text" th:field="${wishListModel.listName}">
+                            </div>
+                            <div class="element">
+                                <button>Create</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <table class="table">
         <thead>
         <tr>
@@ -31,42 +63,13 @@
         </thead>
         <tbody>
         <tr th:each="wishList: ${wishLists}">
-            <td th:text="${wishList.getName()}">Ønskelistenavn</td>
+            <td th:text="${wishList.getListName()}">Ønskelistenavn</td>
             <td>
-                <button>Open</button>
+                <button href="/wishlist">Open</button>
             </td>
         </tr>
         </tbody>
     </table>
-    <table id="createNew">
-        <tr>
-            <td>Create new wish list</td>
-        </tr>
-    </table>
-    <button th:onclick="openLoginForm()">Create</button>
-    <div class="popup-overlay"></div>
-    <div class="popup">
-        <div class="popup-close"
-             th:onclick="closeLoginForm()">&times;
-        </div>
-        <div class="form">
-            <div class="avatar">
-                <img src="https://bit.ly/31pHqJb" alt="">
-            </div>
-            <div class="header">
-                Create new WishList
-            </div>
-            <form action="#">
-                <div class="element">
-                    <label>Wishlist name</label>
-                    <input type="text">
-                </div>
-                <div class="element">
-                    <button>Create</button>
-                </div>
-            </form>
-        </div>
-    </div>
 </div>
 <script th:inline="javascript">
     function openLoginForm() {

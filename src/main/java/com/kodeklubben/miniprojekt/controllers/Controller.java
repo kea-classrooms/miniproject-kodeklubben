@@ -23,6 +23,9 @@ public class Controller {
     public String login(Model model) {
         UserModel userModel = new UserModel("", "", "");
         model.addAttribute("userModel", userModel);
+        int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
+        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
+        model.addAttribute("wishLists", wishLists);
         return "login";
     }
 
@@ -30,10 +33,8 @@ public class Controller {
     @PostMapping("/login")
     public String submitLogin(@ModelAttribute("userModel") UserModel userModel, Model model) {
         submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model, true);
-        model.addAttribute("userModel", userModel);
         return "profile";
     }
-
 
     //wish list
     @GetMapping("/wishList")
@@ -55,13 +56,17 @@ public class Controller {
     }
 
     @PostMapping("/createWishList")
-    public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel) {
+    public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel, Model model) {
         System.out.println(wishListModel);
+        System.out.println(userModel);
+        System.out.println(model);
         wishListRepository.insertNewWishList(wishListModel.getListName(), wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword()));
-        return "";
+        int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
+        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
+        model.addAttribute("wishLists", wishLists);
+        model.addAttribute("userModel", userModel);
+        return "profile";
     }
-
-
 
     //login with email and password
     @GetMapping("/credentials")
@@ -107,11 +112,10 @@ public class Controller {
     public String aboutPage() {
         return "about";
     }
+
     @GetMapping("/contact")
     public String contactPage() {
         return "Contact";
     }
-
-
 
 }

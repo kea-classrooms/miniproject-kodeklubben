@@ -16,7 +16,7 @@
     padding-top: 5px;
 }
 
-.form-button {
+.button {
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: gold; /* Green */
@@ -61,7 +61,7 @@
     padding-right: 24px;
 }
 
-b, h1, a, th, td, p{
+b, h1, h2, h3, a, th, td, p{
     color: whitesmoke;
     font-family: "Helvetica", serif;
     text-decoration: none;

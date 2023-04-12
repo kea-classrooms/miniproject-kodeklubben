@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
     <link rel="stylesheet" href="css/newGlobal.css" type="text/css"/>
+    <link rel="stylesheet" href="css/login.css" type="text/css"/>
   </head>
   <body>
     <div class="container">
-      <div class="nav-bar">
+      <div class="nav-bar" style="margin-bottom: 100px">
         <div class="nav-bar-item">
         <a href="./">
           <b style="margin: 0; font-size: 32px"><span>Wish</span><span class="gold">ly</span></b>
@@ -17,26 +18,29 @@
         <div><a class="nav-bar-item" href="/about">About</a></div>
         <div><a class="nav-bar-item" href="/contact">Contact</a></div>
         <div><a class="nav-bar-item" href="/register">Sign Up</a></div>
-        <div><a class="nav-bar-item" href="/login" style="opacity: 0.67">Log in</a></div>
+        <div><a class="nav-bar-item" href="/login" style="color: gold">Log in</a></div>
       </div>
       </div>
-      <h1 style="padding-top: 50px">Login</h1>
-      <div class="form">
+      <div id="form">
+        <div style="margin-right: 30px">
+        <h1 style="display:inline-block;">Log</h1><h1 style="display:inline-block;" class="gold">in</h1>
+        </div>
         <form action="#" th:action="@{/login}" th:object="${userModel}" method="post">
           <div class="form-item">
-            <b style="padding-right: 15px; padding-left: 32px">Email</b>
-            <input type="email" th:field="${userModel.email}"/>
+            <b>Email</b>
+            <input style="width: 200px; margin-top: 5px; text-align:center;" type="email" th:field="${userModel.email}"/>
           </div>
           <div class="form-item">
-            <b style="padding-right: 15px">Password</b>
-            <input type="password" th:field="${userModel.password}"/>
+            <b>Password</b>
+            <input style="width: 200px; margin-top: 5px; text-align:center;" type="password" th:field="${userModel.password}"/>
           </div>
           <div>
             <button type="submit" class="button">
               <div class="login3">Login</div>
             </button>
           </div>
-          <a href="/register">Don’t have an account? Click here to sign up</a>
+          <a href="/register">Don’t have an account?
+            <br>Click here to sign <up></up></a>
         </form>
       </div>
     </div>

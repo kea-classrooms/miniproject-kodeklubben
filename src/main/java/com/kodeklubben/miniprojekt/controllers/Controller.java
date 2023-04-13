@@ -85,6 +85,7 @@ public class Controller {
 
 
      */
+    /*
     @PostMapping("/createWishList")
     public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel, Model model) {
         System.out.println(wishListModel);
@@ -92,6 +93,21 @@ public class Controller {
         System.out.println(model);
         wishListRepository.insertNewWishList(wishListModel.getListName(), wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword()));
         int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
+        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
+        model.addAttribute("wishLists", wishLists);
+        model.addAttribute("userModel", userModel);
+        model.addAttribute("wishListModel", wishListModel); // Add this line
+        return "profile";
+    }
+     */
+    //chatgpt fix
+    @PostMapping("/createWishList")
+    public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel, Model model) {
+        System.out.println(wishListModel);
+        System.out.println(userModel);
+        System.out.println(model);
+        int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
+        wishListRepository.insertNewWishList(wishListModel.getListName(), userId);
         ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
         model.addAttribute("wishLists", wishLists);
         model.addAttribute("userModel", userModel);

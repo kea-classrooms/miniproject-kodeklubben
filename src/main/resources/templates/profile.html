@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${user.getName()}">Your Page</title>
+
+    <title th:text="${userModel.getName()}">Your Page</title>
     <link rel="stylesheet" href="css/newGlobal.css" type="text/css"/>
     <link rel="stylesheet" href="css/profile.css" type="text/css"/>
 </head>
@@ -22,7 +23,7 @@
             <div><a class="nav-bar-item" href="/contact">Contact</a></div>
         </div>
     </div>
-    <h1 th:text="${user.getName()}">loading...</h1>
+    <h1 th:text="${userModel.getName()}">loading...</h1>
     <div style="display: flex; justify-content: center; margin-bottom: 10px">
         <div class="createArea">
             <h2 style="font-size: 22px; margin-bottom: -1px; margin-top: -2px">Create a new wishlist</h2>

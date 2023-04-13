@@ -79,7 +79,9 @@ public class Controller {
             UserModel userModel = wishListRepository.getUser(userId);
             ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
             model.addAttribute("user", userModel);
+            System.out.println(userModel.getName());
             model.addAttribute("wishLists", wishLists);
+            System.out.println(wishLists.size());
             return "profile";
         } else {
             if (isLogin) {
@@ -104,7 +106,7 @@ public class Controller {
         System.out.println(userModel);
         wishListRepository.insertNewUser(userModel.getName(), userModel.getEmail(), userModel.getPassword());
         submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model, false);
-        return "profile";
+        return "";
     }
 
     // About & Contact

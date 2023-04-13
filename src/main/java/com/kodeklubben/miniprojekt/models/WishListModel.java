@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WishListModel {
-    private String listName;
-    private ArrayList<WishModel> wishModelList;
+    String listName;
+    ArrayList<WishModel> wishModelList;
 
     public WishListModel(String listName, ArrayList<WishModel> wishes) {
         this.listName = listName;

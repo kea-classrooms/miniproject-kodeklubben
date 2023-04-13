@@ -18,7 +18,7 @@ public class WishListRepository {
 
 
     private static final String GET_WISH_LISTS = "SELECT id, name, userId  FROM wishLists WHERE userId=?";
-    private static final String GET_WISH_LIST = "SELECT id, name, userId  FROM wishLists WHERE userId=? AND id=?";
+    private static final String GET_WISH_LIST = "SELECT id, name, userId  FROM wishLists WHERE id=?";
     private static final String GET_WISHES = "SELECT id, name, link FROM wishes WHERE wishListId=?";
     private static final String GET_USER = "SELECT id, name, email, password FROM users WHERE id=?";
 
@@ -63,10 +63,9 @@ public class WishListRepository {
         }
     }
 
-    public WishListModel getWishList(int userId, int wishListId) {
+    public WishListModel getWishList(int wishListId) {
         try(PreparedStatement statement = dcm.getConnection().prepareStatement(GET_WISH_LIST)) {
-            statement.setLong(1, userId);
-            statement.setLong(2, wishListId);
+            statement.setLong(1, wishListId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 return new WishListModel(resultSet.getString("name"), getWishes(resultSet.getInt("id")));

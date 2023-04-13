@@ -40,20 +40,11 @@ public class Controller {
     //wish list
     @GetMapping("/wishList")
     public String getWishList(@RequestParam String id, Model model) {
-        //localhost:8080/wishList?id=1
-        int userId = Integer.parseInt(id.split(";;")[0]);
-        int wishListId = Integer.parseInt(id.split(";;")[1]);
-        WishListModel wishList = wishListRepository.getWishList(userId, wishListId);
-        if (wishList != null) {
-            UserModel user = wishListRepository.getUser(userId);
-            if (user != null) {
-                model.addAttribute("user", user);
-            }
-            model.addAttribute("wishList", wishList);
-            return "wishList";
-        } else {
-            return "createWishList";
-        }
+        //localhost:8080/wishList?id=1;
+        int wishListId = Integer.parseInt(id);
+        WishListModel wishList = wishListRepository.getWishList(wishListId);
+        model.addAttribute("wishList", wishList);
+        return "wishList";
     }
 
     /*

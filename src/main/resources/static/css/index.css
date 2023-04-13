@@ -9,30 +9,40 @@
 }
 
 #hero-section {
-  background-color: yellow;
   display: flex;
-
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 #hero-text {
-  background-color: green;
-  text-align: left;
+  text-align: center;
   flex: 50%;
-
+  margin: auto;
 }
 
 #hero-img {
-  background-color: tomato;
-  flex: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .computer-image {
-  width: 20vw;
+  width: 30vw;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
   padding: 20px;
+}
+
+#process-image {
+  display: flex;
+  justify-content: center;
+}
+
+#button-div {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .arrow {
@@ -62,11 +72,12 @@ b {
 }
 
 .content {
-  width: 84vw;
-  margin: 0 auto;
-  border: 0;
+  width: 80vw;
+  margin: 2vw;
+  border-radius: 25px;
+  border: 10px rgb(0, 0, 0, 0.5);
   outline: 0;
-  background-color: lightgray;
+  background-color: rgb(13,0,87,0.5);
   justify-content: center;
 }
 
@@ -74,8 +85,6 @@ b {
   position: absolute;
   top: 477px;
   left: 475px;
-  border-radius: var(--br-31xl);
-  background-color: var(--color-gold);
   width: 259px;
   height: 81px;
   display: flex;
@@ -83,48 +92,3 @@ b {
   align-items: center;
   justify-content: center;
 }
-
-.sign-up1 {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: relative;
-  font-size: var(--font-size-11xl);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-family: var(--font-outfit);
-  color: var(--color-white);
-  text-align: left;
-  display: inline-block;
-  width: 136.21px;
-}
-
-.sign-up-button1 {
-  position: absolute;
-  top: 477px;
-  left: 767px;
-  border-radius: var(--br-31xl);
-  background-color: var(--color-cornflowerblue);
-  width: 255px;
-  height: 81px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.login1 {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: relative;
-  font-size: var(--font-size-11xl);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-family: var(--font-outfit);
-  color: var(--color-white);
-  text-align: left;
-  display: inline-block;
-}
-

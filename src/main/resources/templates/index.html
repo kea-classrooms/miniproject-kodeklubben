@@ -23,35 +23,32 @@
       <div><a class="nav-bar-item" href="/login">Log in</a></div>
     </div>
   </div>
-  <div style="height: 5vw"></div>
   <div class="content">
-    <div class="text-box">
-      <h1><span>Welcome To Wish</span><span class="gold">ly</span></h1>
-    </div>
-    <div id="hero-section" class="clearfix">
+    <div id="hero-section">
         <div id="hero-text">
-          <p>
+          <h1><span>Welcome To Wish</span><span class="gold">ly</span></h1>
+          <p style="margin-left: 5vw; margin-right: 5vw">
             Create your own digital wishlist and share it with friends and family today!
           </p>
+          <div id="button-div">
+            <a th:href="@{'/register'}">
+              <button class="button" autofocus id="signUp1">Sign Up</button>
+            </a>
+
+            <a th:href="@{'/login'}">
+              <button class="button" autofocus id="login1" >Login</button>
+            </a>
+          </div>
         </div>
         <div id="hero-img">
           <img class="computer-image" src="css/public/objectother-07@2x.png" alt="Wishlist Image">
         </div>
     </div>
   </div>
+  <div id="process-image">
+    <img style="width: 60vw; padding-top: 50px" src="css/public/wishlyproces.png" alt="Wishly Process">
+  </div>
 </div>
-
-<a th:href="@{'/register'}">
-  <div class="sign-up-button">
-    <button class="sign-up1" autofocus id="signUp1">Sign Up</button>
-  </div>
-</a>
-
-<a th:href="@{'/login'}">
-  <div class="sign-up-button1">
-    <button class="login1" autofocus id="login1" >Login</button>
-  </div>
-</a>
 
 
 

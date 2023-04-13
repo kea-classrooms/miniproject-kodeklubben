@@ -153,4 +153,8 @@ public class Controller {
         return "Contact";
     }
 
+    @GetMapping("/error")
+    public String errorPage() {
+        return "Error";
+    }
 }

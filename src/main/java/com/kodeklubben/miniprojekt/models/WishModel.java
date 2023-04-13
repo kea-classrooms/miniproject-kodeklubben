@@ -1,9 +1,9 @@
 package com.kodeklubben.miniprojekt.models;
 
 public class WishModel {
-    private int id;
-    private String name;
-    private String link;
+    int id;
+    String name;
+    String link;
 
     public WishModel(int id, String name, String link) {
         this.id = id;

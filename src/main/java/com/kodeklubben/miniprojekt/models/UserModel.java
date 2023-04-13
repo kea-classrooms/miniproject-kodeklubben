@@ -11,6 +11,12 @@ public class UserModel {
         this.password = password;
     }
 
+    public UserModel() {
+        this.name = "";
+        this.email = "";
+        this.password = "";
+    }
+
     public String getName() {
         return name;
     }

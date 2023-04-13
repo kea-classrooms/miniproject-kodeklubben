@@ -5,13 +5,13 @@ import com.kodeklubben.miniprojekt.models.WishListModel;
 import com.kodeklubben.miniprojekt.repositories.WishListRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 
 @org.springframework.stereotype.Controller
 @RequestMapping("/")
 public class Controller {
     WishListRepository wishListRepository = new WishListRepository();
+    UserModel userModel = new UserModel();
 
     @GetMapping("/")
     public String homePage(){
@@ -30,30 +30,18 @@ public class Controller {
         return "login";
     }
 
-    // Create User
-    /*
     @PostMapping("/login")
     public String submitLogin(@ModelAttribute("userModel") UserModel userModel, Model model) {
         submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model, true);
+        WishListModel wishListModel = new WishListModel();
+        model.addAttribute("wishListModel", wishListModel);
         return "profile";
     }
-
-
-     */
-    @PostMapping("/login")
-    public String submitLogin(@ModelAttribute("userModel") UserModel userModel, Model model) {
-        submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model, true);
-        WishListModel wishListModel = new WishListModel(); // Add this line, assuming you have a default constructor for WishListModel
-        model.addAttribute("wishListModel", wishListModel); // Add this line
-        return "profile";
-    }
-
-
 
     //wish list
     @GetMapping("/wishList")
     public String getWishList(@RequestParam String id, Model model) {
-        //localhost:8080/wishList?id=1;;1
+        //localhost:8080/wishList?id=1
         int userId = Integer.parseInt(id.split(";;")[0]);
         int wishListId = Integer.parseInt(id.split(";;")[1]);
         WishListModel wishList = wishListRepository.getWishList(userId, wishListId);
@@ -102,7 +90,7 @@ public class Controller {
      */
     //chatgpt fix
     @PostMapping("/createWishList")
-    public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel, Model model) {
+    public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, Model model) {
         System.out.println(wishListModel);
         System.out.println(userModel);
         System.out.println(model);
@@ -125,7 +113,7 @@ public class Controller {
         String password = id.split(";")[1];
         int userId = wishListRepository.getIdFromAuthentication(email, password);
         if (userId != -1) {
-            UserModel userModel = wishListRepository.getUser(userId);
+            userModel = wishListRepository.getUser(userId);
             ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
             model.addAttribute("user", userModel);
             System.out.println(userModel.getName());

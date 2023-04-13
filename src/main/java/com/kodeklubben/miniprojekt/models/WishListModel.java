@@ -12,6 +12,10 @@ public class WishListModel {
         this.wishModelList = wishes;
     }
 
+    public WishListModel() {
+
+    }
+
     public String getListName() {
         return listName;
     }

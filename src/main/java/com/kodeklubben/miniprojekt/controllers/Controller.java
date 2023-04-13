@@ -19,6 +19,7 @@ public class Controller {
     }
 
     // Login
+
     @GetMapping("/login")
     public String login(Model model) {
         UserModel userModel = new UserModel("", "", "");
@@ -30,11 +31,24 @@ public class Controller {
     }
 
     // Create User
+    /*
     @PostMapping("/login")
     public String submitLogin(@ModelAttribute("userModel") UserModel userModel, Model model) {
         submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model, true);
         return "profile";
     }
+
+
+     */
+    @PostMapping("/login")
+    public String submitLogin(@ModelAttribute("userModel") UserModel userModel, Model model) {
+        submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model, true);
+        WishListModel wishListModel = new WishListModel(); // Add this line, assuming you have a default constructor for WishListModel
+        model.addAttribute("wishListModel", wishListModel); // Add this line
+        return "profile";
+    }
+
+
 
     //wish list
     @GetMapping("/wishList")
@@ -55,6 +69,7 @@ public class Controller {
         }
     }
 
+    /*
     @PostMapping("/createWishList")
     public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel, Model model) {
         System.out.println(wishListModel);
@@ -67,6 +82,24 @@ public class Controller {
         model.addAttribute("userModel", userModel);
         return "profile";
     }
+
+
+     */
+    @PostMapping("/createWishList")
+    public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel, Model model) {
+        System.out.println(wishListModel);
+        System.out.println(userModel);
+        System.out.println(model);
+        wishListRepository.insertNewWishList(wishListModel.getListName(), wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword()));
+        int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
+        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
+        model.addAttribute("wishLists", wishLists);
+        model.addAttribute("userModel", userModel);
+        model.addAttribute("wishListModel", wishListModel); // Add this line
+        return "profile";
+    }
+
+
 
     //login with email and password
     @GetMapping("/credentials")

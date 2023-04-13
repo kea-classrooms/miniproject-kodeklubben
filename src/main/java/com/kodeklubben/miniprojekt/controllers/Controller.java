@@ -19,7 +19,6 @@ public class Controller {
     }
 
     // Login
-
     @GetMapping("/login")
     public String login(Model model) {
         UserModel userModel = new UserModel("", "", "");
@@ -115,7 +114,7 @@ public class Controller {
         if (userId != -1) {
             userModel = wishListRepository.getUser(userId);
             ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
-            model.addAttribute("user", userModel);
+            model.addAttribute("userModel", userModel);
             System.out.println(userModel.getName());
             model.addAttribute("wishLists", wishLists);
             System.out.println(wishLists.size());

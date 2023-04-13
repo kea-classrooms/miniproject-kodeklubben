@@ -20,12 +20,32 @@
 
 .table {
     font-size: 24px;
-    min-width: 84vw;
+    min-width: 83vw;
     background-color: rgba(151,71,255,0.2);
 }
 
-body {
-    font-family: "Raleway";
+td {
+    min-width: 42vw;
+}
+
+tr {
+    padding-left: 4vw;
+    padding-right: 4vw;
+    display: block;
+    justify-content: center;
+}
+
+tbody {
+    max-width: 75vw;
+    display: block;
+    justify-content: center;
+}
+
+th {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 46vw;
+    text-align: left;
 }
 
 .center {

@@ -57,18 +57,16 @@
         </div>
     </div>
     <table class="table">
-        <thead>
-        <tr>
-            <th>Navn</th>
-            <th>link</th>
-        </tr>
+        <thead style="width: 78vw">
+            <tr>
+                <th>Name</th>
+                <th>Link</th>
+            </tr>
         </thead>
         <tbody>
         <tr th:each="wishList: ${wishLists}">
             <td th:text="${wishList.getListName()}">Ønskelistenavn</td>
-            <td>
-                <button href="/wishlist">Open</button>
-            </td>
+            <td><button class="button" href="/wishlist">See</button></td>
         </tr>
         </tbody>
     </table>

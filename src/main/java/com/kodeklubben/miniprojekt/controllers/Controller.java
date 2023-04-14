@@ -46,6 +46,7 @@ public class Controller {
             wishList = new WishListModel("Ukendt liste", wishes, -1);
         }
         model.addAttribute("wishList", wishList);
+        model.addAttribute(Integer.parseInt(id));
         return "wishList";
     }
 
@@ -85,7 +86,7 @@ public class Controller {
     //chatgpt fix
 
 
-
+        // Create wishList
     @PostMapping("/profile")
     public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, Model model) {
         System.out.println(wishListModel);
@@ -93,12 +94,7 @@ public class Controller {
         System.out.println(model);
         int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
         wishListRepository.insertNewWishList(wishListModel.getListName(), userId);
-        return getProfile(String.valueOf(userId), model, userModel);
-    }
-
-    @RequestMapping("/sheesh")
-    public String getProfile(@RequestParam String id, Model model, UserModel userModel) {
-        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(Integer.parseInt(id));
+        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
         model.addAttribute("wishLists", wishLists);
         model.addAttribute("userModel", userModel);
         return "profile";
@@ -112,6 +108,33 @@ public class Controller {
         model.addAttribute("wishLists", wishLists);
         return "profile";
     }
+
+    // Create wish
+    @PostMapping("/wishList")
+    public String submitCreateWish(@ModelAttribute("wishModel") WishModel wishModel, Model model) {
+        System.out.println(wishModel);
+        System.out.println(userModel);
+        System.out.println("model = " + model.toString());
+        int wishListID = (int) model.getAttribute("id");
+        System.out.println("kig her " + wishListID);
+        System.out.println(model.getAttribute("id"));
+        wishListRepository.insertNewWish(wishModel.getName(),wishModel.getLink(), wishModel.getId());
+        model.addAttribute("wishModel", wishModel);
+        model.addAttribute("userModel", userModel);
+        return "wishList";
+    }
+
+    @RequestMapping("/wishList")
+    public String getWishProfile(@ModelAttribute("wishListModel") WishModel wishModel ,Model model) {
+        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userModel.getId());
+        model.addAttribute("userModel", userModel);
+        System.out.println(userModel.getName());
+        model.addAttribute("wishModel", wishModel);
+        return "wishList";
+    }
+
+
+
 
     //login with email and password
     @GetMapping("/credentials")

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xml:th="http://www.thymeleaf.org">
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <title>Your Page</title>
     <link rel="stylesheet" href="css/newGlobal.css" type="text/css"/>
     <link rel="stylesheet" href="css/profile.css" type="text/css"/>
@@ -23,10 +21,10 @@
             <div><a class="nav-bar-item" href="/contact">Contact</a></div>
         </div>
     </div>
-    <h1>loading...</h1>
+    <h1 th:text="${wishList.getListName()}">loading...</h1>
     <div style="display: flex; justify-content: center; margin-bottom: 10px">
         <div class="createArea">
-            <h2 style="font-size: 22px; margin-bottom: -1px; margin-top: -2px; padding-top: 5px">a a new wish</h2>
+            <h2 style="font-size: 22px; margin-bottom: -1px; margin-top: -2px; padding-top: 5px">Add a new wish</h2>
             <div>
                 <button class="button" th:onclick="openLoginForm()">Add</button>
                 <div class="popup-overlay"></div>
@@ -41,16 +39,19 @@
                         <div class="header">
                             Add new Wish
                         </div>
-                        <form >
+                        <form action="#" th:action="@{/wishList}" th:object="${wishModel}" method="post">
                             <div class="element">
                                 <label>Wish name</label>
-                                <input type="text">
+                                <input type="text" th:field="${wishModel.name}">
+                            </div>
+                            <div class="element">
+                                <label>Link to product</label>
+                                <input type="text" th:field="${wishModel.link}">
                             </div>
                             <div class="element">
                                 <button>Add</button>
                             </div>
                         </form>
-                        <form action="#" th:action></form>
                     </div>
                 </div>
             </div>
@@ -65,13 +66,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="wishList: ${wishLists}">
-            <td th:text="${wishList.getListName()}">Ønskelistenavn</td>
-            <td>
-                <a th:href="@{'/wishlist/' + ${wishList.getWishListID()}}">
-                    <button class="button" type="submit">View</button>
-                </a>
-            </td>
+        <tr th:each="wish: ${wishModel}">
+            <td th:text="${wish.getName()}">Wish Name</td>
+            <td th:text="${wish.getLink()}">Wish Link</td>
         </tr>
         </tbody>
     </table>

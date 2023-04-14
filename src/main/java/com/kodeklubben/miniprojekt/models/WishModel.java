@@ -11,7 +11,7 @@ public class WishModel {
         this.link = link;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 

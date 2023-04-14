@@ -154,7 +154,7 @@ public class WishListRepository {
         return lastWishListId;
     }
 
-    public int insertNewWish(String name, String link, int wishListId, int userId) {
+    public int insertNewWish(String name, String link, int wishListId) {
         int lastWishId = 0;
         try (PreparedStatement preparedStatement = dcm.getConnection().prepareStatement(GET_LATEST_WISH_ID)) {
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -171,7 +171,6 @@ public class WishListRepository {
             userInsertionStatement.setString(2, name);
             userInsertionStatement.setString(3, link);
             userInsertionStatement.setLong(4, wishListId);
-            userInsertionStatement.setLong(5, userId);
             userInsertionStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -195,7 +194,7 @@ public class WishListRepository {
             int wishListId = insertNewWishList(randomName + "'s juleønsker", userId);
 
             //create wish
-            insertNewWish("Solcreme", "https://www.matas.dk/derma-sollotion-spf30-200-ml", wishListId, userId);
+            insertNewWish("Solcreme", "https://www.matas.dk/derma-sollotion-spf30-200-ml", wishListId);
         }
         return wishLists;
     }

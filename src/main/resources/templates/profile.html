@@ -26,9 +26,9 @@
     <h1 th:text="${userModel.getName()}">loading...</h1>
     <div style="display: flex; justify-content: center; margin-bottom: 10px">
         <div class="createArea">
-            <h2 style="font-size: 22px; margin-bottom: -1px; margin-top: -2px">Create a new wishlist</h2>
+            <h2 style="font-size: 22px; margin-bottom: -1px; margin-top: -2px; padding-top: 5px">Create a new wishlist</h2>
             <div>
-                <button th:onclick="openLoginForm()">Create</button>
+                <button class="button" th:onclick="openLoginForm()">Create</button>
                 <div class="popup-overlay"></div>
                 <div class="popup">
                     <div class="popup-close"
@@ -56,11 +56,12 @@
             </div>
         </div>
     </div>
+    <div style="height: 20px"></div>
     <table class="table">
-        <thead style="width: 78vw">
+        <thead style="width: 83vw">
             <tr>
                 <th>Name</th>
-                <th>Link</th>
+                <th style="padding-left: 8vw">Link</th>
             </tr>
         </thead>
         <tbody>

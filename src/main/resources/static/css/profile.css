@@ -21,7 +21,7 @@
 .table {
     font-size: 24px;
     min-width: 83vw;
-    background-color: rgba(151,71,255,0.2);
+    background-color: rgba(219, 190, 255, 0.04);
 }
 
 td {
@@ -36,7 +36,7 @@ tr {
 }
 
 tbody {
-    max-width: 75vw;
+    max-width: 83.75vw;
     display: block;
     justify-content: center;
 }

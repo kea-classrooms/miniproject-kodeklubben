@@ -45,44 +45,12 @@ public class Controller {
             ArrayList<WishModel> wishes = new ArrayList<>();
             wishList = new WishListModel("Ukendt liste", wishes, -1);
         }
+        model.addAttribute("wishModel", new WishModel(-1,"",""));
         model.addAttribute("wishList", wishList);
         model.addAttribute(Integer.parseInt(id));
         return "wishList";
     }
-
-    /*
-    @PostMapping("/createWishList")
-    public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel, Model model) {
-        System.out.println(wishListModel);
-        System.out.println(userModel);
-        System.out.println(model);
-        wishListRepository.insertNewWishList(wishListModel.getListName(), wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword()));
-        int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
-        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
-        model.addAttribute("wishLists", wishLists);
-        model.addAttribute("userModel", userModel);
-        return "profile";
-    }
-
-
-
-
-     */
-    /*
-    @PostMapping("/createWishList")
-    public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, UserModel userModel, Model model) {
-        System.out.println(wishListModel);
-        System.out.println(userModel);
-        System.out.println(model);
-        wishListRepository.insertNewWishList(wishListModel.getListName(), wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword()));
-        int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
-        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
-        model.addAttribute("wishLists", wishLists);
-        model.addAttribute("userModel", userModel);
-        model.addAttribute("wishListModel", wishListModel); // Add this line
-        return "profile";
-    }
-     */
+    
     //chatgpt fix
 
 

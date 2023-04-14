@@ -4,11 +4,23 @@ public class UserModel {
     String name;
     String email;
     String password;
+    int id;
 
-    public UserModel(String name, String email, String password) {
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
+    public UserModel(String name, String email, String password, int id) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.id = id;
     }
 
     public UserModel() {
@@ -19,6 +31,14 @@ public class UserModel {
 
     public String getName() {
         return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -41,12 +61,4 @@ public class UserModel {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "UserModel{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }

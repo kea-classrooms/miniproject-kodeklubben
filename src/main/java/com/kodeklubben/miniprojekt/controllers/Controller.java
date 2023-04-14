@@ -2,6 +2,7 @@ package com.kodeklubben.miniprojekt.controllers;
 
 import com.kodeklubben.miniprojekt.models.UserModel;
 import com.kodeklubben.miniprojekt.models.WishListModel;
+import com.kodeklubben.miniprojekt.models.WishModel;
 import com.kodeklubben.miniprojekt.repositories.WishListRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,11 +22,8 @@ public class Controller {
     // Login
     @GetMapping("/login")
     public String login(Model model) {
-        UserModel userModel = new UserModel("", "", "");
+        UserModel userModel = new UserModel("", "", "", -1);
         model.addAttribute("userModel", userModel);
-        int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
-        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
-        model.addAttribute("wishLists", wishLists);
         return "login";
     }
 
@@ -38,11 +36,15 @@ public class Controller {
     }
 
     //wish list
-    @GetMapping("/wishList/{id}")
-    public String getWishList(Model model, @PathVariable String id) {
+    @GetMapping("/wishList")
+    public String getWishList(Model model, @RequestParam String id) {
         //localhost:8080/wishList?id=1;
         int wishListId = Integer.parseInt(id);
         WishListModel wishList = wishListRepository.getWishList(wishListId);
+        if (wishList == null) {
+            ArrayList<WishModel> wishes = new ArrayList<>();
+            wishList = new WishListModel("Ukendt liste", wishes, -1);
+        }
         model.addAttribute("wishList", wishList);
         return "wishList";
     }
@@ -60,6 +62,8 @@ public class Controller {
         model.addAttribute("userModel", userModel);
         return "profile";
     }
+
+
 
 
      */
@@ -80,22 +84,34 @@ public class Controller {
      */
     //chatgpt fix
 
-    @PostMapping("/createWishList")
+
+
+    @PostMapping("/profile")
     public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, Model model) {
         System.out.println(wishListModel);
         System.out.println(userModel);
         System.out.println(model);
         int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
         wishListRepository.insertNewWishList(wishListModel.getListName(), userId);
-        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
-        System.out.println(wishLists.get(0).getWishListID());
+        return getProfile(String.valueOf(userId), model, userModel);
+    }
+
+    @RequestMapping("/sheesh")
+    public String getProfile(@RequestParam String id, Model model, UserModel userModel) {
+        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(Integer.parseInt(id));
         model.addAttribute("wishLists", wishLists);
         model.addAttribute("userModel", userModel);
-        model.addAttribute("wishListModel", wishListModel); // Add this line
         return "profile";
     }
 
-
+    @RequestMapping("/profile")
+    public String getProfile(@ModelAttribute("wishListModel") WishListModel wishListModel ,Model model) {
+        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userModel.getId());
+        model.addAttribute("userModel", userModel);
+        System.out.println(userModel.getName());
+        model.addAttribute("wishLists", wishLists);
+        return "profile";
+    }
 
     //login with email and password
     @GetMapping("/credentials")
@@ -124,7 +140,7 @@ public class Controller {
     @GetMapping("/register")
     public String register(Model model) {
         System.out.println(model);
-        UserModel userModel = new UserModel("", "", "");
+        UserModel userModel = new UserModel("", "", "", -1);
         model.addAttribute("userModel", userModel);
         return "register";
     }

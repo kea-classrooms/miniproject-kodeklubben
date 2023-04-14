@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class Controller {
     WishListRepository wishListRepository = new WishListRepository();
     UserModel userModel = new UserModel();
+    int wishListId = -1;
 
     @GetMapping("/")
     public String homePage(){
@@ -39,7 +40,8 @@ public class Controller {
     @GetMapping("/wishList")
     public String getWishList(Model model, @RequestParam String id) {
         //localhost:8080/wishList?id=1;
-        int wishListId = Integer.parseInt(id);
+        wishListId = Integer.parseInt(id);
+        System.out.println(wishListId);
         WishListModel wishList = wishListRepository.getWishList(wishListId);
         if (wishList == null) {
             ArrayList<WishModel> wishes = new ArrayList<>();
@@ -80,21 +82,16 @@ public class Controller {
     // Create wish
     @PostMapping("/wishList")
     public String submitCreateWish(@ModelAttribute("wishModel") WishModel wishModel, Model model) {
-        System.out.println(wishModel);
-        System.out.println(userModel);
-        System.out.println("model = " + model.toString());
-        int wishListID = (int) model.getAttribute("id");
-        System.out.println("kig her " + wishListID);
-        System.out.println(model.getAttribute("id"));
-        wishListRepository.insertNewWish(wishModel.getName(),wishModel.getLink(), wishModel.getId());
-        model.addAttribute("wishModel", wishModel);
-        model.addAttribute("userModel", userModel);
+        wishListRepository.insertNewWish(wishModel.getName(), wishModel.getLink(), wishListId);
+        WishListModel wishListModel = wishListRepository.getWishList(wishListId);
+        model.addAttribute("wishModel", new WishModel(-1,"",""));
+        model.addAttribute("wishList", wishListModel);
+        model.addAttribute(wishListId);
         return "wishList";
     }
 
     @RequestMapping("/wishList")
     public String getWishProfile(@ModelAttribute("wishListModel") WishModel wishModel ,Model model) {
-        ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userModel.getId());
         model.addAttribute("userModel", userModel);
         System.out.println(userModel.getName());
         model.addAttribute("wishModel", wishModel);

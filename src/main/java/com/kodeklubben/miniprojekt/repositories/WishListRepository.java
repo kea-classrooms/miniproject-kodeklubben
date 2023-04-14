@@ -171,6 +171,7 @@ public class WishListRepository {
             userInsertionStatement.setString(2, name);
             userInsertionStatement.setString(3, link);
             userInsertionStatement.setLong(4, wishListId);
+            userInsertionStatement.setLong(5, -1);
             userInsertionStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();

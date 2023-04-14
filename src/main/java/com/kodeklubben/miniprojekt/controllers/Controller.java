@@ -88,7 +88,6 @@ public class Controller {
         int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
         wishListRepository.insertNewWishList(wishListModel.getListName(), userId);
         ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
-        System.out.println(wishLists.get(0).getWishListID());
         model.addAttribute("wishLists", wishLists);
         model.addAttribute("userModel", userModel);
         model.addAttribute("wishListModel", wishListModel); // Add this line

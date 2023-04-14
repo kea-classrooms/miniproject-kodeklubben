@@ -68,8 +68,8 @@
         <tr th:each="wishList: ${wishLists}">
             <td th:text="${wishList.getListName()}">Ønskelistenavn</td>
             <td>
-                <a th:href="'http://localhost:8080/wishlist/' + ${wishList.getWishListID()}">
-                <button class="button">View</button>
+                <a th:href="@{'/wishList/' + ${wishList.getWishListID()}}">
+                    <button class="button" type="submit">View</button>
                 </a>
             </td>
         </tr>

@@ -1,32 +1,89 @@
 <!DOCTYPE html>
 <html lang="en" xml:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Wish List</title>
+
+    <title>Your Page</title>
     <link rel="stylesheet" href="css/newGlobal.css" type="text/css"/>
     <link rel="stylesheet" href="css/profile.css" type="text/css"/>
 </head>
-<body style="background-color: #212529">
-<h1 style="color: whitesmoke; padding-left: 12px; padding-top: 24px" th:text="${wishList.getListName()}">Liste af alle ønsker</h1>
-<table class="table table-dark">
-    <thead>
-    <tr>
-        <th scope="col">Ønske</th>
-        <th scope="col">Link</th>
-    </tr>
-    </thead>
-    <tbody>
-    <thead style="width: 83vw">
-    <tr>
-        <th>Name</th>
-        <th style="padding-left: 8vw">Link</th>
-    </tr>
-    </thead>
-    <tr th:each="wish: ${wishList.getWishModelList()}">
-        <td th:text="${wish.getName()}">Ønskenavn</td>
-        <td><a th:href="${wish.getLink()}" th:text="${wish.getLink()}"></a></td>
-    </tr>
-    </tbody>
-</table>
+<body>
+<div class="container">
+    <div class="nav-bar">
+        <div class="nav-bar-item">
+            <a href="./"><b style="margin: 0">
+                <span>Wish</span>
+                <span class="gold">ly</span>
+            </b>
+                <b class="b"></b></a>
+        </div>
+        <div class="nav-bar-right">
+            <div><a class="nav-bar-item" href="/about">About</a></div>
+            <div><a class="nav-bar-item" href="/contact">Contact</a></div>
+        </div>
+    </div>
+    <h1>loading...</h1>
+    <div style="display: flex; justify-content: center; margin-bottom: 10px">
+        <div class="createArea">
+            <h2 style="font-size: 22px; margin-bottom: -1px; margin-top: -2px; padding-top: 5px">a a new wish</h2>
+            <div>
+                <button class="button" th:onclick="openLoginForm()">Add</button>
+                <div class="popup-overlay"></div>
+                <div class="popup">
+                    <div class="popup-close"
+                         th:onclick="closeLoginForm()">&times;
+                    </div>
+                    <div class="form">
+                        <div class="avatar">
+                            <img src="https://bit.ly/31pHqJb" alt="">
+                        </div>
+                        <div class="header">
+                            Add new Wish
+                        </div>
+                        <form >
+                            <div class="element">
+                                <label>Wish name</label>
+                                <input type="text">
+                            </div>
+                            <div class="element">
+                                <button>Add</button>
+                            </div>
+                        </form>
+                        <form action="#" th:action></form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 20px"></div>
+    <table class="table">
+        <thead style="width: 83vw">
+        <tr>
+            <th>Name</th>
+            <th style="padding-left: 8vw">Link</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="wishList: ${wishLists}">
+            <td th:text="${wishList.getListName()}">Ønskelistenavn</td>
+            <td>
+                <a th:href="@{'/wishlist/' + ${wishList.getWishListID()}}">
+                    <button class="button" type="submit">View</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script th:inline="javascript">
+    function openLoginForm() {
+        document.body.classList.add("showLoginForm");
+    }
+
+    function closeLoginForm() {
+        document.body.classList.remove("showLoginForm")
+    }
+</script>
 </body>
 </html>

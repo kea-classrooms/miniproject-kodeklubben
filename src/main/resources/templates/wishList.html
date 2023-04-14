@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Wish List</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/newGlobal.css" type="text/css"/>
+    <link rel="stylesheet" href="css/profile.css" type="text/css"/>
 </head>
 <body style="background-color: #212529">
 <h1 style="color: whitesmoke; padding-left: 12px; padding-top: 24px" th:text="${wishList.getListName()}">Liste af alle ønsker</h1>
@@ -15,6 +16,12 @@
     </tr>
     </thead>
     <tbody>
+    <thead style="width: 83vw">
+    <tr>
+        <th>Name</th>
+        <th style="padding-left: 8vw">Link</th>
+    </tr>
+    </thead>
     <tr th:each="wish: ${wishList.getWishModelList()}">
         <td th:text="${wish.getName()}">Ønskenavn</td>
         <td><a th:href="${wish.getLink()}" th:text="${wish.getLink()}"></a></td>

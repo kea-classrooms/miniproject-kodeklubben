@@ -79,6 +79,7 @@ public class Controller {
     }
      */
     //chatgpt fix
+
     @PostMapping("/createWishList")
     public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, Model model) {
         System.out.println(wishListModel);

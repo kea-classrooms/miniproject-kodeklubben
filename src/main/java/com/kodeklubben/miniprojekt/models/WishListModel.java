@@ -10,11 +10,6 @@ public class WishListModel {
     ArrayList<WishModel> wishModelList;
     int wishListID;
 
-    public WishListModel(String listName, ArrayList<WishModel> wishes) {
-        this.listName = listName;
-        this.wishModelList = wishes;
-    }
-
     public WishListModel(String listName, ArrayList<WishModel> wishes, int wishListID) {
         this.listName = listName;
         this.wishModelList = wishes;

@@ -66,7 +66,11 @@
         <tbody>
         <tr th:each="wishList: ${wishLists}">
             <td th:text="${wishList.getListName()}">Ønskelistenavn</td>
-            <td><button class="button" href="/wishlist">See</button></td>
+            <td>
+                <a th:href="@{'/wishlist/' + ${wishList.getWishListID()}}">
+                <button class="button">View</button>
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>

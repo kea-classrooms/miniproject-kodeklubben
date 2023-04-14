@@ -18,6 +18,7 @@ public class WishListRepository {
 
 
     private static final String GET_WISH_LISTS = "SELECT id, name, userId  FROM wishLists WHERE userId=?";
+    private static final String GET_WISHLISTID = "SELECT id, FROM wishlist WHERE id=?";
     private static final String GET_WISH_LIST = "SELECT id, name, userId  FROM wishLists WHERE id=?";
     private static final String GET_WISHES = "SELECT id, name, link FROM wishes WHERE wishListId=?";
     private static final String GET_USER = "SELECT id, name, email, password FROM users WHERE id=?";
@@ -73,6 +74,19 @@ public class WishListRepository {
             return null;
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int getWishlistID(int wishlistID){
+        try(PreparedStatement statement = dcm.getConnection().prepareStatement(GET_WISHLISTID)){
+            statement.setLong(1, wishlistID);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt("id");
+            }
+            return 0;
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

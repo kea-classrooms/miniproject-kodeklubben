@@ -38,8 +38,8 @@ public class Controller {
     }
 
     //wish list
-    @GetMapping("/wishList")
-    public String getWishList(@RequestParam String id, Model model) {
+    @GetMapping("/wishList/{id}")
+    public String getWishList(Model model, @PathVariable String id) {
         //localhost:8080/wishList?id=1;
         int wishListId = Integer.parseInt(id);
         WishListModel wishList = wishListRepository.getWishList(wishListId);
@@ -87,6 +87,7 @@ public class Controller {
         int userId = wishListRepository.getIdFromAuthentication(userModel.getEmail(), userModel.getPassword());
         wishListRepository.insertNewWishList(wishListModel.getListName(), userId);
         ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userId);
+        System.out.println(wishLists.get(0).getWishListID());
         model.addAttribute("wishLists", wishLists);
         model.addAttribute("userModel", userModel);
         model.addAttribute("wishListModel", wishListModel); // Add this line

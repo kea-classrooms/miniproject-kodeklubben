@@ -21,14 +21,16 @@
 .table {
     font-size: 24px;
     min-width: 83vw;
+    max-width: 83vw;
     background-color: rgba(219, 190, 255, 0.04);
 }
 
 td {
-    min-width: 52vw;
+    width: 90%;
 }
 
 tr {
+    width: 90%;
     padding-left: 4vw;
     padding-right: 4vw;
     display: block;
@@ -44,7 +46,7 @@ tbody {
 th {
     padding-bottom: 10px;
     padding-top: 10px;
-    width: 46vw;
+    width: 94.96%;
     text-align: left;
 }
 
@@ -54,8 +56,6 @@ th {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-
 
 body.showLoginForm .popup-overlay{
     display: block;
@@ -95,18 +95,18 @@ body.showLoginForm .popup{
 }
 
 .popup {
-    margin-top: 150px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) scale(1.15);
     width: 300px;
-    height: 440px;
+    height: 460px;
     background: #f5f5f5;
     z-index: 2;
     opacity: 0;
+    border-radius: 20px;
     box-shadow: 5px 5px 3px rgba(0,0,0,0.2);
-    transition: transform 300ms ease-in-out,opacity 300ms ease-in-out;
+    transition: transform 1000ms ease-in-out,opacity 1000ms ease-in-out;
 }
 
 .popup .form .avatar{

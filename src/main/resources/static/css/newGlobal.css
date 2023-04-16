@@ -48,6 +48,7 @@
     width: 84vw;
     font-size: 24px;
     display: inline-block;
+    text-align: center;
 }
 
 .nav-bar-right {
@@ -58,6 +59,14 @@
 .nav-bar-item {
     display: inline-flex;
     float: left;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.nav-bar-center {
+    display: inline-flex;
+    text-align: center;
+    margin: auto;
     padding-left: 24px;
     padding-right: 24px;
 }

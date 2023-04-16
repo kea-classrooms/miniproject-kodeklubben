@@ -52,10 +52,6 @@ public class Controller {
         model.addAttribute(Integer.parseInt(id));
         return "wishList";
     }
-    
-    //chatgpt fix
-
-
         // Create wishList
     @PostMapping("/profile")
     public String submitCreateWishlist(@ModelAttribute("wishListModel") WishListModel wishListModel, Model model) {
@@ -97,9 +93,6 @@ public class Controller {
         model.addAttribute("wishModel", wishModel);
         return "wishList";
     }
-
-
-
 
     //login with email and password
     @GetMapping("/credentials")

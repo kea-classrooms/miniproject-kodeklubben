@@ -1,0 +1,226 @@
+.background-cirkels-icon1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2097px;
+  height: 1504px;
+}
+.hly2 {
+  color: var(--color-gold);
+}
+.b1 {
+  font-family: var(--font-inter);
+}
+.about1,
+.wishly1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.about1 {
+  left: 885px;
+}
+.contact1,
+.login2,
+.nav-bar1 {
+  position: absolute;
+  top: 0;
+  left: 998px;
+}
+.login2,
+.nav-bar1 {
+  left: 779px;
+}
+.nav-bar1 {
+  top: 49px;
+  left: 180px;
+  width: 1088px;
+  height: 32px;
+}
+.create-wishlist-page-child {
+  position: absolute;
+  top: 243px;
+  left: 189px;
+  border-radius: var(--br-6xl);
+  background-color: var(--color-cornflowerblue);
+  width: 1064px;
+  height: 653px;
+}
+.top-header-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-6xl);
+  width: 1065px;
+  height: 114px;
+}
+.wishly-create {
+  position: absolute;
+  top: 19px;
+  left: 329px;
+  letter-spacing: 0.03em;
+  text-transform: capitalize;
+}
+.top-header {
+  position: absolute;
+  top: 129px;
+  left: 188px;
+  width: 1065px;
+  height: 114px;
+  text-align: center;
+  font-size: var(--font-size-41xl);
+}
+.my-wishlists {
+  position: absolute;
+  top: 411px;
+  left: 234px;
+  font-size: var(--font-size-11xl);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.birthday-child,
+.birthday-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gainsboro-200);
+  width: 314px;
+  height: 256px;
+}
+.birthday-item {
+  top: 194px;
+  left: 2px;
+  background-color: var(--color-whitesmoke);
+  width: 310px;
+  height: 62px;
+}
+.birthday1,
+.wishes {
+  position: absolute;
+  top: 195px;
+  left: 14px;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  width: 226px;
+  height: 34px;
+}
+.wishes {
+  top: 220px;
+  font-size: var(--font-size-xl);
+}
+.image-1-icon {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  width: 246px;
+  height: 201px;
+  object-fit: cover;
+}
+.birthday {
+  position: absolute;
+  top: 478px;
+  left: 228px;
+  width: 314px;
+  height: 256px;
+  color: var(--color-darkslategray);
+}
+.rectangle-div {
+  position: absolute;
+  top: 194px;
+  left: 2px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-whitesmoke);
+  width: 321px;
+  height: 62px;
+}
+.birthday2 {
+  position: absolute;
+  top: 478px;
+  left: 219px;
+  width: 323px;
+  height: 256px;
+  color: var(--color-darkslategray);
+}
+.blank-line {
+  margin: 0;
+}
+.image-2-icon {
+  position: absolute;
+  top: 12px;
+  left: 80px;
+  width: 155px;
+  height: 177px;
+  object-fit: cover;
+}
+.christmas,
+.christmas3 {
+  position: absolute;
+  top: 478px;
+  left: 572px;
+  width: 314px;
+  height: 256px;
+  color: var(--color-darkslategray);
+}
+.christmas3 {
+  left: 563px;
+  width: 323px;
+}
+.show-all {
+  position: absolute;
+  top: 426px;
+  left: 471px;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+}
+.property-1default-child {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-31xl);
+  background-color: var(--color-gold);
+}
+.new-wishlist {
+  position: absolute;
+  height: 40.48%;
+  width: 89.47%;
+  top: 29.76%;
+  left: 5.26%;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.property-1default,
+.sign-up-button2 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 285px;
+  height: 84px;
+}
+.sign-up-button2 {
+  top: 278px;
+  left: 199px;
+  border-radius: 5px;
+  border: 1px dashed #9747ff;
+  box-sizing: border-box;
+  width: 332px;
+  height: 122px;
+  overflow: hidden;
+  font-size: var(--font-size-11xl);
+}
+.create-wishlist-page {
+  position: relative;
+  background-color: var(--color-midnightblue);
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-6xl);
+  color: var(--color-white);
+  font-family: var(--font-outfit);
+}

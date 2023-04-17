@@ -1,0 +1,216 @@
+.background-cirkels-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2097px;
+  height: 1504px;
+}
+.ly {
+  color: var(--color-gold);
+}
+.b {
+  font-family: var(--font-inter);
+}
+.about,
+.contact,
+.wishly {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.about,
+.contact {
+  left: 885px;
+}
+.contact {
+  left: 998px;
+}
+.sign-up {
+  text-decoration: none;
+  top: 0;
+  left: 650px;
+  color: inherit;
+}
+.login,
+.nav-bar,
+.sign-up {
+  position: absolute;
+}
+.login {
+  text-decoration: none;
+  top: 0;
+  left: 779px;
+  color: inherit;
+}
+.nav-bar {
+  top: 49px;
+  left: 180px;
+  width: 1088px;
+  height: 32px;
+  font-size: var(--font-size-6xl);
+}
+.sign-up1 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  font-size: var(--font-size-11xl);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--font-outfit);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  width: 136.21px;
+}
+.sign-up-button {
+  position: absolute;
+  top: 477px;
+  left: 193px;
+  border-radius: var(--br-31xl);
+  background-color: var(--color-gold);
+  width: 259px;
+  height: 81px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login1 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  font-size: var(--font-size-11xl);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--font-outfit);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+}
+.sign-up-button1 {
+  position: absolute;
+  top: 477px;
+  left: 467px;
+  border-radius: var(--br-31xl);
+  background-color: var(--color-cornflowerblue);
+  width: 255px;
+  height: 81px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.welcome-to-wishly-container {
+  position: absolute;
+  top: 0;
+  left: 4px;
+  letter-spacing: 0.03em;
+  text-transform: capitalize;
+}
+.create-your-own {
+  position: absolute;
+  top: 96px;
+  left: 4px;
+  font-size: 28px;
+  letter-spacing: 0.05em;
+  text-align: left;
+  display: inline-block;
+  width: 502px;
+  height: 138px;
+}
+.objectother-07-icon {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.hero-section,
+.objectother-07 {
+  position: absolute;
+  top: 0;
+  left: 590px;
+  width: 465px;
+  height: 362px;
+}
+.hero-section {
+  top: 196px;
+  left: 193px;
+  width: 1055px;
+  text-align: center;
+  font-size: var(--font-size-41xl);
+}
+.sign-up2 {
+  position: absolute;
+  top: 779px;
+  left: 234px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.create-wishlist {
+  top: 759px;
+  left: 468px;
+  text-align: center;
+  display: inline-block;
+  width: 180px;
+  height: 78px;
+}
+.add-wishes,
+.create-wishlist,
+.share-it {
+  position: absolute;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.add-wishes {
+  top: 760px;
+  left: 748px;
+  text-align: center;
+  display: inline-block;
+  width: 189px;
+  height: 75px;
+}
+.share-it {
+  top: 779px;
+  left: 1056px;
+  color: var(--color-gold);
+}
+.homepage-child,
+.homepage-inner,
+.homepage-item {
+  position: absolute;
+  top: 779.33px;
+  left: 387.96px;
+  width: 62.54px;
+  height: 36.82px;
+}
+.homepage-inner,
+.homepage-item {
+  left: 956.96px;
+}
+.homepage-inner {
+  left: 667.96px;
+}
+.homepage {
+  position: relative;
+  background-color: var(--color-midnightblue);
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+  font-family: var(--font-outfit);
+}

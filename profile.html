@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xml:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${userModel.getName()}">Your Page</title>
+    <link rel="stylesheet" href="css/newGlobal.css" type="text/css"/>
+    <link rel="stylesheet" href="css/profile.css" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <div class="nav-bar">
+        <div class="nav-bar-item">
+            <a href="./"><b style="margin: 0">
+                <span>Wish</span>
+                <span class="gold">ly</span>
+            </b>
+                <b class="b"></b></a>
+        </div>
+        <div class="nav-bar-center" style="margin-left: 100px">
+            <h1 th:text="${userModel.getName()}"></h1>
+        </div>
+        <div class="nav-bar-right">
+            <div><a class="nav-bar-item" href="/about">About</a></div>
+            <div><a class="nav-bar-item" href="/contact">Contact</a></div>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center; margin-bottom: 10px">
+        <div class="createArea">
+            <h2 style="font-size: 22px; margin-bottom: -1px; margin-top: -2px; padding-top: 5px">Create a new
+                wishlist</h2>
+            <div>
+                <button class="button" th:onclick="openLoginForm()">Create</button>
+                <div class="popup-overlay">
+                    <div class="popup">
+                        <div class="popup-close"
+                             th:onclick="closeLoginForm()">&times;
+                        </div>
+                        <div class="form">
+                            <div class="avatar">
+                                <img src="https://bit.ly/31pHqJb" alt="">
+                            </div>
+                            <div class="header">
+                                Create new WishList
+                            </div>
+                            <form action="#" th:action="@{/profile}" th:object="${wishListModel}" method="post">
+                                <div class="element">
+                                    <label>Wishlist name</label>
+                                    <input type="text" th:field="${wishListModel.listName}">
+                                </div>
+                                <div class="element">
+                                    <button>Create</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div style="height: 20px"></div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="wishList: ${wishLists}">
+            <td th:text="${wishList.getListName()}">Ønskelistenavn</td>
+            <td>
+                <a th:href="@{'/wishList?id=' + ${wishList.getWishListID()}}">
+                    <button class="button">View</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script th:inline="javascript">
+    function openLoginForm() {
+        document.body.classList.add("showLoginForm");
+    }
+
+    function closeLoginForm() {
+        document.body.classList.remove("showLoginForm")
+    }
+</script>
+</body>
+</html>

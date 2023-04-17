@@ -30,10 +30,14 @@ public class Controller {
 
     @PostMapping("/login")
     public String submitLogin(@ModelAttribute("userModel") UserModel userModel, Model model) {
-        submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model, true);
-        WishListModel wishListModel = new WishListModel();
-        model.addAttribute("wishListModel", wishListModel);
-        return "profile";
+        boolean success = submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model);
+        if (success) {
+            WishListModel wishListModel = new WishListModel();
+            model.addAttribute("wishListModel", wishListModel);
+            return "profile";
+        } else {
+            return "login";
+        }
     }
 
     //wish list
@@ -96,8 +100,7 @@ public class Controller {
 
     //login with email and password
     @GetMapping("/credentials")
-    public String submitLogin(@RequestParam String id, Model model, boolean isLogin) {
-        //http://localhost:8080/credentials?id=frederikbehrens90@gmail.com;123
+    public boolean submitLogin(@RequestParam String id, Model model) {
         String email = id.split(";")[0];
         String password = id.split(";")[1];
         int userId = wishListRepository.getIdFromAuthentication(email, password);
@@ -108,13 +111,9 @@ public class Controller {
             System.out.println(userModel.getName());
             model.addAttribute("wishLists", wishLists);
             System.out.println(wishLists.size());
-            return "profile";
+            return true;
         } else {
-            if (isLogin) {
-                return "login";
-            } else {
-                return "register";
-            }
+            return false;
         }
     }
 
@@ -131,8 +130,18 @@ public class Controller {
     public String createUser(@ModelAttribute("userModel") UserModel userModel, Model model) {
         System.out.println(userModel);
         wishListRepository.insertNewUser(userModel.getName(), userModel.getEmail(), userModel.getPassword());
-        submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model, false);
-        return "";
+        boolean success = submitLogin(userModel.getEmail() + ";" + userModel.getPassword(), model);
+        if (success) {
+            ArrayList<WishListModel> wishLists = wishListRepository.getWishLists(userModel.getId());
+            model.addAttribute("userModel", userModel);
+            System.out.println(userModel.getName());
+            model.addAttribute("wishLists", wishLists);
+            WishListModel wishListModel = new WishListModel();
+            model.addAttribute("wishListModel", wishListModel);
+            return "profile";
+        } else {
+            return "register";
+        }
     }
 
     // About & Contact
